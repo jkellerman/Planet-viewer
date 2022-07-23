@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyles from "./styles/global-styles";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import SharedLayout from "./pages/SharedLayout";
+import Mercury from "./pages/Mercury";
+import Venus from "./pages/Venus";
+import Earth from "./pages/Earth";
+import Mars from "./pages/Mars";
+import Jupiter from "./pages/Jupiter";
+import Saturn from "./pages/Saturn";
+import Uranus from "./pages/Uranus";
+import Neptune from "./pages/Neptune";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyles />
+      <BrowserRouter>
+        <Routes>
+          <Route element={<SharedLayout />}>
+            <Route path="/" element={<Navigate to="/earth" />} />
+            <Route path="mercury" element={<Mercury />} />
+            <Route path="venus" element={<Venus />} />
+            <Route path="earth" element={<Earth />} />
+            <Route path="mars" element={<Mars />} />
+            <Route path="jupiter" element={<Jupiter />} />
+            <Route path="saturn" element={<Saturn />} />
+            <Route path="uranus" element={<Uranus />} />
+            <Route path="neptune" element={<Neptune />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
