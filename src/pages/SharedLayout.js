@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
+import Navigation from "../components/Navigation";
 
 const SharedLayout = () => {
   return (
     <>
-      <h1>Hello World</h1>
+      <Navigation isNavOpen />
       <Outlet />
     </>
   );

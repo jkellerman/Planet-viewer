@@ -13,6 +13,27 @@ export const COLORS = {
   neptune: "#2D68F0",
 };
 
+export const COLORSARRAY = [
+  COLORS.mercury,
+  COLORS.venus,
+  COLORS.earth,
+  COLORS.mars,
+  COLORS.jupiter,
+  COLORS.saturn,
+  COLORS.uranus,
+  COLORS.neptune,
+];
+
+export const FONTFAMILY = {
+  antonio: "Antonio",
+  spartan: "League Spartan",
+};
+
+export const FONTWEIGHT = {
+  regular: 400,
+  bold: 700,
+};
+
 const BREAKPOINTS = {
   mobileS: "20em",
   mobileM: "23.4375em",

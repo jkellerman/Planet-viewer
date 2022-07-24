@@ -1,12 +1,46 @@
 import { css } from "styled-components";
+import { COLORS, COLORSARRAY } from "./variables";
 
-export const setupBorder = ({ width, type = "solid", color }) => {
+// Utility functions
+// ================
+
+// set border
+
+export const setupBorder = ({
+  width = 1,
+  type = "solid",
+  color = `${COLORS.hoverTab}`,
+}) => {
   return `${width}px ${type} ${color}`;
 };
 
+// set unique background color for nav underline and mobile nav bulletpoints/balls
+
+const getBackgroundColor = (i, colorsIndex) => {
+  return `
+    &:nth-child(${i + 1}n)::before{
+      background: ${COLORSARRAY[colorsIndex++]};
+    }
+  `;
+};
+
+export const calculateBackgrounds = () => {
+  let str = "";
+  let colorsIndex = -1;
+  for (let index = 0; index < COLORSARRAY.length; index++) {
+    colorsIndex++;
+    if (colorsIndex === colorsIndex.length - 1) colorsIndex = 0;
+    str += getBackgroundColor(index, colorsIndex);
+  }
+  return str;
+};
+
+// css helper functions
+// ====================
+
 export const centerDiv = css`
-  width: "87.5%";
-  margin: "0 auto";
+  width: 90%;
+  margin: 0 auto;
 `;
 
 export const flexRowSpaceBetween = css`

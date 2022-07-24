@@ -1,5 +1,5 @@
 const Neptune = () => {
-  return <div>hello world</div>;
+  return <div>hello neptune</div>;
 };
 
 export default Neptune;
