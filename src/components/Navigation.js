@@ -15,10 +15,11 @@ const Navigation = (props) => {
   const toggleMenu = () => {
     setIsNavOpen(!isNavOpen);
   };
+
   return (
     <Header>
       <HeaderContainer>
-        <Title>the planets</Title>
+        <Title>planet viewer</Title>
         <NavButton type="button" onClick={() => toggleMenu()}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="17">
             <g
@@ -34,7 +35,7 @@ const Navigation = (props) => {
             <li>
               <StyledNavLinkContainer>
                 <StyledNavLink
-                  to="/mercury"
+                  to="/planet/mercury"
                   onClick={() => setIsNavOpen(false)}
                 >
                   mercury
@@ -44,7 +45,10 @@ const Navigation = (props) => {
             </li>
             <li>
               <StyledNavLinkContainer>
-                <StyledNavLink to="/venus" onClick={() => setIsNavOpen(false)}>
+                <StyledNavLink
+                  to="/planet/venus"
+                  onClick={() => setIsNavOpen(false)}
+                >
                   venus
                 </StyledNavLink>
                 <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
@@ -60,7 +64,10 @@ const Navigation = (props) => {
             </li>
             <li>
               <StyledNavLinkContainer>
-                <StyledNavLink to="/mars" onClick={() => setIsNavOpen(false)}>
+                <StyledNavLink
+                  to="/planet/mars"
+                  onClick={() => setIsNavOpen(false)}
+                >
                   mars
                 </StyledNavLink>
                 <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
@@ -69,7 +76,7 @@ const Navigation = (props) => {
             <li>
               <StyledNavLinkContainer>
                 <StyledNavLink
-                  to="/jupiter"
+                  to="/planet/jupiter"
                   onClick={() => setIsNavOpen(false)}
                 >
                   jupiter
@@ -79,7 +86,10 @@ const Navigation = (props) => {
             </li>
             <li>
               <StyledNavLinkContainer>
-                <StyledNavLink to="/saturn" onClick={() => setIsNavOpen(false)}>
+                <StyledNavLink
+                  to="/planet/saturn"
+                  onClick={() => setIsNavOpen(false)}
+                >
                   saturn
                 </StyledNavLink>
                 <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
@@ -87,7 +97,10 @@ const Navigation = (props) => {
             </li>
             <li>
               <StyledNavLinkContainer>
-                <StyledNavLink to="/uranus" onClick={() => setIsNavOpen(false)}>
+                <StyledNavLink
+                  to="/planet/uranus"
+                  onClick={() => setIsNavOpen(false)}
+                >
                   uranus
                 </StyledNavLink>
                 <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
@@ -96,7 +109,7 @@ const Navigation = (props) => {
             <li>
               <StyledNavLinkContainer>
                 <StyledNavLink
-                  to="/neptune"
+                  to="/planet/neptune"
                   onClick={() => setIsNavOpen(false)}
                 >
                   neptune
@@ -112,7 +125,7 @@ const Navigation = (props) => {
 };
 
 const Header = styled.header`
-  margin: 1rem 0;
+  margin: 1rem 0 0;
   border-bottom: ${setupBorder({})};
   position: relative;
 
@@ -171,8 +184,11 @@ const Nav = styled.nav`
   position: absolute;
   z-index: 5;
   ${flexColumnSpaceBetween}
-  top: 5rem;
-  width: 90%;
+  top: 4.5rem;
+  left: 0;
+  padding: 0 1.5rem 4.125rem;
+  width: 100vw;
+  height: 100vh;
   background: ${COLORS.background};
   display: ${({ isNavOpen }) => (isNavOpen ? "block" : "none")};
 
@@ -183,6 +199,8 @@ const Nav = styled.nav`
     z-index: unset;
     background: unset;
     width: 100%;
+    height: unset;
+    padding: unset;
   }
 
   @media (${QUERIES.laptop}) {
