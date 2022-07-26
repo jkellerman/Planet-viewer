@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data/data.json";
+import { QUERIES } from "../utils/variables";
 
 const Planet = () => {
   const { planetName } = useParams();
@@ -19,10 +20,31 @@ const PlanetContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 305px;
+
+  @media (${QUERIES.tablet}) {
+    grid-column: 1 / span 2;
+    width: unset;
+    min-height: 422.781px;
+  }
+
+  @media (${QUERIES.laptop}) {
+    grid-row: 1 / span 3;
+    min-height: unset;
+  }
 `;
 
 const StyledImg = styled.img`
   transform: scale(0.3);
+
+  @media (${QUERIES.tablet}) {
+    transform: unset;
+    width: calc(100% / 1.58);
+  }
+
+  @media (${QUERIES.laptop}) {
+    width: 100%;
+    transform: translateX(-1.5rem);
+  }
 `;
 
 export default Planet;

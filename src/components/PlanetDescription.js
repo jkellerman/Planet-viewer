@@ -33,8 +33,17 @@ const PlanetDescriptionContainer = styled.div`
   margin-bottom: 1.75rem;
   font-size: 0.6875rem;
 
+  @media (${QUERIES.tablet}) {
+    text-align: start;
+  }
+
   @media (${QUERIES.laptop}) {
     font-size: 0.875rem;
+    grid-area: 1 / 3;
+    grid-row: 1 / span 2;
+    align-self: center;
+    transform: translateY(-2rem);
+    max-width: 350px;
   }
 
   p {
@@ -42,6 +51,19 @@ const PlanetDescriptionContainer = styled.div`
     margin: 0 auto;
     line-height: 22px;
     margin-bottom: 2rem;
+
+    @media (${QUERIES.tablet}) {
+      margin: 0 0 2rem;
+      width: 80%;
+      height: 110px;
+    }
+
+    @media (${QUERIES.laptop}) {
+      font-size: 0.875rem;
+      width: 95%;
+      height: 154px;
+      margin: 0;
+    }
   }
 `;
 
@@ -50,6 +72,15 @@ const Source = styled.div`
   justify-content: center;
   align-items: center;
   gap: 4px;
+
+  @media (${QUERIES.tablet}) {
+    justify-content: flex-start;
+    font-size: 0.75rem;
+  }
+
+  @media (${QUERIES.laptop}) {
+    transform: translateY(-1.5rem);
+  }
 
   span,
   a {
@@ -74,6 +105,7 @@ const Name = styled.h1`
 
   @media (${QUERIES.laptop}) {
     font-size: 5rem;
+    transform: translateX(-0.2rem);
   }
 `;
 

@@ -151,6 +151,10 @@ const HeaderContainer = styled.div`
   @media (${QUERIES.laptop}) {
     ${flexRowSpaceBetween}
   }
+
+  @media (${QUERIES.desktop}) {
+    max-width: 1336px;
+  }
 `;
 
 const Title = styled.div`
@@ -281,6 +285,9 @@ const StyledNavLink = styled(NavLink)`
     font-size: 0.6875rem;
     margin-left: unset;
     letter-spacing: 1px;
+  }
+
+  @media (${QUERIES.laptop}) {
     opacity: 0.7;
 
     &:hover {
