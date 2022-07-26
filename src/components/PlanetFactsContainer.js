@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Tabs from "./Tabs";
 import Planet from "./Planet";
 import PlanetDescription from "./PlanetDescription";
+import PlanetData from "./PlanetData";
 import { QUERIES } from "../utils/variables";
 
 const PlanetFactsContainer = () => {
@@ -12,6 +13,7 @@ const PlanetFactsContainer = () => {
         <Planet />
         <PlanetDescription />
       </Container>
+      <PlanetData />
     </main>
   );
 };

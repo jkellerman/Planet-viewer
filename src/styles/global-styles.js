@@ -21,7 +21,7 @@ body, h3, h4 {
   
 }
 
-h1, h2 {
+h1, h2, dd {
   font-family: ${FONTFAMILY.antonio}, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -34,6 +34,7 @@ body {
   background-size: cover;
   color: ${COLORS.primary};
 }
+
 
 
 

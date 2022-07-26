@@ -11,6 +11,7 @@ import {
 } from "../utils/helpers";
 
 const Navigation = (props) => {
+  console.log(props);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleMenu = () => {
     setIsNavOpen(!isNavOpen);
