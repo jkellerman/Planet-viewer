@@ -19,7 +19,7 @@
     "temperature": "430°c",
     "images": {
       "planet": "../assets/overview/planet-mercury.svg",
-      "internal": "../assets/planet-mercury-internal.svg"
+      "internal": "../assets/structure/planet-mercury-internal.svg"
     }
   },
   {
@@ -42,7 +42,7 @@
     "temperature": "471°c",
     "images": {
       "planet": "../assets/overview/planet-venus.svg",
-      "internal": "../assets/planet-venus-internal.svg"
+      "internal": "../assets/structure/planet-venus-internal.svg"
     }
   },
   {
@@ -65,7 +65,7 @@
     "temperature": "16°c",
     "images": {
       "planet": "../assets/overview/planet-earth.svg",
-      "internal": "../assets/planet-earth-internal.svg"
+      "internal": "../assets/structure/planet-earth-internal.svg"
     }
   },
   {
@@ -88,7 +88,7 @@
     "temperature": "-28°c",
     "images": {
       "planet": "../assets/overview/planet-mars.svg",
-      "internal": "../assets/planet-mars-internal.svg"
+      "internal": "../assets/structure/planet-mars-internal.svg"
     }
   },
   {
@@ -111,7 +111,7 @@
     "temperature": "-108°c",
     "images": {
       "planet": "../assets/overview/planet-jupiter.svg",
-      "internal": "../assets/planet-jupiter-internal.svg"
+      "internal": "../assets/structure/planet-jupiter-internal.svg"
     }
   },
   {
@@ -134,7 +134,7 @@
     "temperature": "-138°c",
     "images": {
       "planet": "../assets/overview/planet-saturn.svg",
-      "internal": "../assets/planet-saturn-internal.svg"
+      "internal": "../assets/structure/planet-saturn-internal.svg"
     }
   },
   {
@@ -157,7 +157,7 @@
     "temperature": "-195°c",
     "images": {
       "planet": "../assets/overview/planet-uranus.svg",
-      "internal": "../assets/planet-uranus-internal.svg"
+      "internal": "../assets/structure/planet-uranus-internal.svg"
     }
   },
   {
@@ -180,7 +180,7 @@
     "temperature": "-201°c",
     "images": {
       "planet": "../assets/overview/planet-neptune.svg",
-      "internal": "../assets/planet-neptune-internal.svg"
+      "internal": "../assets/structure/planet-neptune-internal.svg"
     }
   }
 ]

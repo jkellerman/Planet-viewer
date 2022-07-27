@@ -1,21 +1,39 @@
+import { usePlanetFactsContext } from "../context/context";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data/data.json";
 import { COLORS, FONTWEIGHT, QUERIES } from "../utils/variables";
 
 const PlanetDescription = () => {
+  const { currentTab } = usePlanetFactsContext();
   const { planetName } = useParams();
   const planets = data.find((planet) => planet.name === planetName);
-  const { overview } = planets;
+  const { overview, structure, geology } = planets;
   return (
     <PlanetDescriptionContainer>
       <Name>{planetName}</Name>
-      <p>{overview.content}</p>
+      <p>
+        {currentTab === "overview" && overview.content}
+        {currentTab === "structure" && structure.content}
+        {currentTab === "surface" && geology.content}
+      </p>
       <Source>
         <span>source :&nbsp;</span>
-        <a href={overview.source} target="_blank" rel="noopener noreferrer">
-          wikipedia
-        </a>
+        {currentTab === "overview" && (
+          <a href={overview.source} target="_blank" rel="noopener noreferrer">
+            wikipedia
+          </a>
+        )}
+        {currentTab === "structure" && (
+          <a href={structure.source} target="_blank" rel="noopener noreferrer">
+            wikipedia
+          </a>
+        )}
+        {currentTab === "surface" && (
+          <a href={geology.source} target="_blank" rel="noopener noreferrer">
+            wikipedia
+          </a>
+        )}
         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
           <path
             fill="#FFF"

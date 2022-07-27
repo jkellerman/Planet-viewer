@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { usePlanetFactsContext } from "../context/context";
 import { useParams } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import { COLORS, FONTWEIGHT, THEME, QUERIES } from "../utils/variables";
 import { centerDiv, setupBorder } from "../utils/helpers";
 
 const Tabs = () => {
-  const [currentTab, setCurrentTab] = useState("overview");
+  const { setCurrentTab, currentTab } = usePlanetFactsContext();
   const { planetName } = useParams();
   const Planet = THEME.find((planet) => planet.name === planetName);
   const { color } = Planet;

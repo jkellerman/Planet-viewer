@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { usePlanetFactsContext } from "../context/context";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { QUERIES, COLORS, FONTFAMILY, FONTWEIGHT } from "../utils/variables";
@@ -11,6 +12,7 @@ import {
 } from "../utils/helpers";
 
 const Navigation = (props) => {
+  const { setCurrentTab } = usePlanetFactsContext();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleMenu = () => {
     setIsNavOpen(!isNavOpen);
@@ -42,7 +44,10 @@ const Navigation = (props) => {
               <StyledNavLinkContainer>
                 <StyledNavLink
                   to="/planet/mercury"
-                  onClick={() => setIsNavOpen(false)}
+                  onClick={() => {
+                    setIsNavOpen(false);
+                    setCurrentTab("overview");
+                  }}
                 >
                   mercury
                 </StyledNavLink>
@@ -53,7 +58,10 @@ const Navigation = (props) => {
               <StyledNavLinkContainer>
                 <StyledNavLink
                   to="/planet/venus"
-                  onClick={() => setIsNavOpen(false)}
+                  onClick={() => {
+                    setIsNavOpen(false);
+                    setCurrentTab("overview");
+                  }}
                 >
                   venus
                 </StyledNavLink>
@@ -62,7 +70,13 @@ const Navigation = (props) => {
             </li>
             <li>
               <StyledNavLinkContainer>
-                <StyledNavLink to="/" onClick={() => setIsNavOpen(false)}>
+                <StyledNavLink
+                  to="/"
+                  onClick={() => {
+                    setIsNavOpen(false);
+                    setCurrentTab("overview");
+                  }}
+                >
                   earth
                 </StyledNavLink>
                 <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
@@ -72,7 +86,10 @@ const Navigation = (props) => {
               <StyledNavLinkContainer>
                 <StyledNavLink
                   to="/planet/mars"
-                  onClick={() => setIsNavOpen(false)}
+                  onClick={() => {
+                    setIsNavOpen(false);
+                    setCurrentTab("overview");
+                  }}
                 >
                   mars
                 </StyledNavLink>
@@ -83,7 +100,10 @@ const Navigation = (props) => {
               <StyledNavLinkContainer>
                 <StyledNavLink
                   to="/planet/jupiter"
-                  onClick={() => setIsNavOpen(false)}
+                  onClick={() => {
+                    setIsNavOpen(false);
+                    setCurrentTab("overview");
+                  }}
                 >
                   jupiter
                 </StyledNavLink>
@@ -94,7 +114,10 @@ const Navigation = (props) => {
               <StyledNavLinkContainer>
                 <StyledNavLink
                   to="/planet/saturn"
-                  onClick={() => setIsNavOpen(false)}
+                  onClick={() => {
+                    setIsNavOpen(false);
+                    setCurrentTab("overview");
+                  }}
                 >
                   saturn
                 </StyledNavLink>
@@ -105,7 +128,10 @@ const Navigation = (props) => {
               <StyledNavLinkContainer>
                 <StyledNavLink
                   to="/planet/uranus"
-                  onClick={() => setIsNavOpen(false)}
+                  onClick={() => {
+                    setIsNavOpen(false);
+                    setCurrentTab("overview");
+                  }}
                 >
                   uranus
                 </StyledNavLink>
@@ -116,7 +142,10 @@ const Navigation = (props) => {
               <StyledNavLinkContainer>
                 <StyledNavLink
                   to="/planet/neptune"
-                  onClick={() => setIsNavOpen(false)}
+                  onClick={() => {
+                    setIsNavOpen(false);
+                    setCurrentTab("overview");
+                  }}
                 >
                   neptune
                 </StyledNavLink>
@@ -196,7 +225,7 @@ const Nav = styled.nav`
   ${flexColumnSpaceBetween}
   top: 4.5rem;
   left: 0;
-  padding: 0 1.5rem 4.125rem;
+  padding: 0.5rem 1.5rem;
   width: 100vw;
   height: 100vh;
   background: ${COLORS.background};
@@ -234,7 +263,7 @@ const Nav = styled.nav`
       &::before {
         content: "";
         position: absolute;
-        top: 1rem;
+        top: 1.25rem;
         width: 20px;
         height: 20px;
         border-radius: 50%;
@@ -274,14 +303,14 @@ const Nav = styled.nav`
 
 const StyledNavLinkContainer = styled.div`
   ${flexRowSpaceBetween}
-  padding: 1.25rem 0;
+  padding: 1.5rem 0;
 `;
 
 const StyledNavLink = styled(NavLink)`
   text-transform: uppercase;
   color: ${COLORS.primary};
   text-decoration: none;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: ${FONTWEIGHT.bold};
   letter-spacing: 1.36px;
   margin-left: 2.75rem;

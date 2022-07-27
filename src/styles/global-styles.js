@@ -43,9 +43,6 @@ body {
   }
 }
 
-
-
-
 `;
 
 export default GlobalStyles;

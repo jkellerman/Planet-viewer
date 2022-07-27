@@ -1,15 +1,26 @@
+import { usePlanetFactsContext } from "../context/context";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data/data.json";
 import { QUERIES } from "../utils/variables";
 
 const Planet = () => {
+  const { currentTab } = usePlanetFactsContext();
   const { planetName } = useParams();
   const planets = data.find((planet) => planet.name === planetName);
   const { images, name } = planets;
+
   return (
     <PlanetContainer>
-      <StyledImg src={images.planet} alt={`planet ${name}`} />
+      {currentTab === "overview" && (
+        <StyledImg src={images.planet} alt={`planet ${name}`} />
+      )}
+      {currentTab === "structure" && (
+        <StyledImg
+          src={images.internal}
+          alt={`internal structure of planet ${name}`}
+        />
+      )}
     </PlanetContainer>
   );
 };
