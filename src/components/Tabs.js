@@ -1,26 +1,46 @@
-import styled from "styled-components";
-import { COLORS, FONTWEIGHT } from "../utils/variables";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+import styled, { ThemeProvider } from "styled-components";
+import { COLORS, FONTWEIGHT, THEME, QUERIES } from "../utils/variables";
 import { centerDiv, setupBorder } from "../utils/helpers";
-import { QUERIES } from "../utils/variables";
 
 const Tabs = () => {
+  const [currentTab, setCurrentTab] = useState("overview");
+  const { planetName } = useParams();
+  const Planet = THEME.find((planet) => planet.name === planetName);
+  const { color } = Planet;
+
   return (
-    <TabsContainer>
-      <TabList>
-        <Tab type="button">
-          <Num>01&nbsp;</Num>
-          overview
-        </Tab>
-        <Tab type="button">
-          <Num>02&nbsp;</Num>
-          <ExtraText>internal&nbsp;</ExtraText>structure
-        </Tab>
-        <Tab type="button">
-          <Num>03&nbsp;</Num>
-          surface <ExtraText>&nbsp;geology (3d viewer)</ExtraText>
-        </Tab>
-      </TabList>
-    </TabsContainer>
+    <ThemeProvider theme={{ color }}>
+      <TabsContainer>
+        <TabList>
+          <Tab
+            currentTab={currentTab}
+            type="button"
+            onClick={() => setCurrentTab("overview")}
+          >
+            <Num>01&nbsp;</Num>
+            overview
+          </Tab>
+          <Tab
+            currentTab={currentTab}
+            type="button"
+            onClick={() => setCurrentTab("structure")}
+          >
+            <Num>02&nbsp;</Num>
+            <ExtraText>internal&nbsp;</ExtraText>structure
+          </Tab>
+          <Tab
+            currentTab={currentTab}
+            type="button"
+            onClick={() => setCurrentTab("surface")}
+          >
+            <Num>03&nbsp;</Num>
+            surface<ExtraText>&nbsp;geology (3d viewer)</ExtraText>
+          </Tab>
+        </TabList>
+      </TabsContainer>
+    </ThemeProvider>
   );
 };
 
@@ -74,8 +94,27 @@ const Tab = styled.button`
   background-color: transparent;
   border: none;
   padding: 1.25rem 0 1rem;
-  border-bottom: ${setupBorder({ width: 4, color: "transparent" })};
   white-space: nowrap;
+  cursor: pointer;
+  border-bottom: ${setupBorder({ width: 4, color: "transparent" })};
+
+  &:nth-child(1) {
+    border-bottom-color: ${({ currentTab, theme }) => {
+      if (currentTab === "overview") return `${theme.color}`;
+    }};
+  }
+
+  &:nth-child(2) {
+    border-bottom-color: ${({ currentTab, theme }) => {
+      if (currentTab === "structure") return `${theme.color}`;
+    }};
+  }
+
+  &:nth-child(3) {
+    border-bottom-color: ${({ currentTab, theme }) => {
+      if (currentTab === "surface") return `${theme.color}`;
+    }};
+  }
 
   @media (${QUERIES.tablet}) {
     height: 48px;
@@ -86,6 +125,32 @@ const Tab = styled.button`
     width: 100%;
     border: ${setupBorder({})};
     color: ${COLORS.primary};
+    transition: all 200ms ease-in-out;
+
+    &:nth-child(1) {
+      border-bottom-color: ${COLORS.hoverTab};
+      background: ${({ currentTab, theme }) => {
+        if (currentTab === "overview") return `${theme.color}`;
+      }};
+    }
+
+    &:nth-child(2) {
+      border-bottom-color: ${COLORS.hoverTab};
+      background: ${({ currentTab, theme }) => {
+        if (currentTab === "structure") return `${theme.color}`;
+      }};
+    }
+
+    &:nth-child(3) {
+      border-bottom-color: ${COLORS.hoverTab};
+      background: ${({ currentTab, theme }) => {
+        if (currentTab === "surface") return `${theme.color}`;
+      }};
+    }
+
+    &:hover {
+      background: ${COLORS.hoverTab};
+    }
   }
 
   @media (${QUERIES.laptop}) {

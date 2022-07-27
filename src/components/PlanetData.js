@@ -13,6 +13,7 @@ const PlanetData = () => {
   const { planetName } = useParams();
   const planets = data.find((planet) => planet.name === planetName);
   const { rotation, revolution, radius, temperature } = planets;
+
   return (
     <List>
       <ListContainer>

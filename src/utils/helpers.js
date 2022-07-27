@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { COLORS, COLORSARRAY } from "./variables";
+import { COLORS, THEME } from "./variables";
 
 // Utility functions
 // ================
@@ -19,7 +19,7 @@ export const setupBorder = ({
 const getBackgroundColor = (i, colorsIndex) => {
   return `
     &:nth-child(${i + 1}n)::before{
-      background: ${COLORSARRAY[colorsIndex++]};
+      background: ${THEME[colorsIndex++].color};
     }
   `;
 };
@@ -27,7 +27,7 @@ const getBackgroundColor = (i, colorsIndex) => {
 export const calculateBackgrounds = () => {
   let str = "";
   let colorsIndex = -1;
-  for (let index = 0; index < COLORSARRAY.length; index++) {
+  for (let index = 0; index < THEME.length; index++) {
     colorsIndex++;
     if (colorsIndex === colorsIndex.length - 1) colorsIndex = 0;
     str += getBackgroundColor(index, colorsIndex);

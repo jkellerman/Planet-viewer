@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 import { QUERIES, COLORS, FONTFAMILY, FONTWEIGHT } from "../utils/variables";
@@ -11,11 +11,16 @@ import {
 } from "../utils/helpers";
 
 const Navigation = (props) => {
-  console.log(props);
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleMenu = () => {
     setIsNavOpen(!isNavOpen);
   };
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (isNavOpen) return body.classList.add("no-scroll");
+    return body.classList.remove("no-scroll");
+  }, [isNavOpen]);
 
   return (
     <Header>
@@ -286,9 +291,6 @@ const StyledNavLink = styled(NavLink)`
     font-size: 0.6875rem;
     margin-left: unset;
     letter-spacing: 1px;
-  }
-
-  @media (${QUERIES.laptop}) {
     opacity: 0.7;
 
     &:hover {

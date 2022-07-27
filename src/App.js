@@ -1,5 +1,5 @@
-import GlobalStyles from "./styles/global-styles";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import GlobalStyles from "./styles/global-styles";
 import PlanetPage from "./pages/PlanetPage";
 
 function App() {

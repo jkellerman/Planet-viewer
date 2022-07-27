@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { COLORS } from "../utils/variables";
-import { FONTFAMILY } from "../utils/variables";
+import { FONTFAMILY, QUERIES } from "../utils/variables";
 
 const GlobalStyles = createGlobalStyle`
 
@@ -33,6 +33,14 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: ${COLORS.primary};
+}
+
+.no-scroll {
+  overflow: hidden;
+
+  @media (${QUERIES.tablet}) {
+    overflow: visible ;
+  }
 }
 
 

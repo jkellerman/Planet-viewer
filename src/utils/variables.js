@@ -6,22 +6,22 @@ export const COLORS = {
   mercury: "#419EBB",
   venus: "#EDA249",
   earth: "#6D2ED5",
-  mars: "#D14C32",
-  jupiter: "#ECAD7A",
-  saturn: "#FCCB6B",
+  mars: "#D04237",
+  jupiter: "#D86534",
+  saturn: "#B87D43",
   uranus: "#1EC1A2",
   neptune: "#2D68F0",
 };
 
-export const COLORSARRAY = [
-  COLORS.mercury,
-  COLORS.venus,
-  COLORS.earth,
-  COLORS.mars,
-  COLORS.jupiter,
-  COLORS.saturn,
-  COLORS.uranus,
-  COLORS.neptune,
+export const THEME = [
+  { name: "mercury", color: `${COLORS.mercury}` },
+  { name: "venus", color: `${COLORS.venus}` },
+  { name: "earth", color: `${COLORS.earth}` },
+  { name: "mars", color: `${COLORS.mars}` },
+  { name: "jupiter", color: `${COLORS.jupiter}` },
+  { name: "saturn", color: `${COLORS.saturn}` },
+  { name: "uranus", color: `${COLORS.uranus}` },
+  { name: "neptune", color: `${COLORS.neptune}` },
 ];
 
 export const FONTFAMILY = {
