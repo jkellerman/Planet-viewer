@@ -53,3 +53,14 @@ export const QUERIES = {
   laptop: `min-width: ${BREAKPOINTS.laptop}`,
   desktop: `min-width: ${BREAKPOINTS.desktop}`,
 };
+
+export const MODELSIZES = [
+  { name: "mercury", size: "290px" },
+  { name: "venus", size: "400px" },
+  { name: "earth", size: "450px" },
+  { name: "mars", size: "336px" },
+  { name: "jupiter", size: "582px" },
+  { name: "saturn", size: "560px" },
+  { name: "uranus", size: `458px` },
+  { name: "neptune", size: `450px` },
+];

@@ -43,6 +43,31 @@ body {
   }
 }
 
+model-viewer {
+height: 100%;
+width: 100%;
+}
+
+#lazy-load-poster {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+}
+#progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+model-viewer#reveal {
+  --poster-color: transparent;
+}
+
 `;
 
 export default GlobalStyles;

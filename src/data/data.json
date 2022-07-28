@@ -20,6 +20,11 @@
     "images": {
       "planet": "../assets/overview/planet-mercury.svg",
       "internal": "../assets/structure/planet-mercury-internal.svg"
+    },
+    "models": {
+      "model": "../assets/models/mercury/mercury.glb",
+      "ios": "../assets/models/mercury/mercury.usdz",
+      "poster": "../assets/models/mercury/poster.webp"
     }
   },
   {
@@ -43,6 +48,11 @@
     "images": {
       "planet": "../assets/overview/planet-venus.svg",
       "internal": "../assets/structure/planet-venus-internal.svg"
+    },
+    "models": {
+      "model": "../assets/models/venus/venus.glb",
+      "ar": "../assets/models/venus/venus.usdz",
+      "poster": "../assets/models/venus/poster.webp"
     }
   },
   {
@@ -66,6 +76,11 @@
     "images": {
       "planet": "../assets/overview/planet-earth.svg",
       "internal": "../assets/structure/planet-earth-internal.svg"
+    },
+    "models": {
+      "model": "../assets/models/earth/earth.glb",
+      "ar": "../assets/models/earth/earth.usdz",
+      "poster": "../assets/models/earth/poster.webp"
     }
   },
   {
@@ -89,6 +104,11 @@
     "images": {
       "planet": "../assets/overview/planet-mars.svg",
       "internal": "../assets/structure/planet-mars-internal.svg"
+    },
+    "models": {
+      "model": "../assets/models/mars/mars.glb",
+      "ar": "../assets/models/mars/mars.usdz",
+      "poster": "../assets/models/mars/poster.webp"
     }
   },
   {
@@ -112,6 +132,11 @@
     "images": {
       "planet": "../assets/overview/planet-jupiter.svg",
       "internal": "../assets/structure/planet-jupiter-internal.svg"
+    },
+    "models": {
+      "model": "../assets/models/jupiter/jupiter.glb",
+      "ar": "../assets/models/jupiter/jupiter.usdz",
+      "poster": "../assets/models/jupiter/poster.webp"
     }
   },
   {
@@ -135,6 +160,11 @@
     "images": {
       "planet": "../assets/overview/planet-saturn.svg",
       "internal": "../assets/structure/planet-saturn-internal.svg"
+    },
+    "models": {
+      "model": "../assets/models/saturn/saturn.glb",
+      "ar": "../assets/models/saturn/saturn.usdz",
+      "poster": "../assets/models/saturn/poster.webp"
     }
   },
   {
@@ -158,6 +188,11 @@
     "images": {
       "planet": "../assets/overview/planet-uranus.svg",
       "internal": "../assets/structure/planet-uranus-internal.svg"
+    },
+    "models": {
+      "model": "../assets/models/uranus/uranus.glb",
+      "ar": "../assets/models/uranus/uranus.usdz",
+      "poster": "../assets/models/uranus/poster.webp"
     }
   },
   {
@@ -181,6 +216,11 @@
     "images": {
       "planet": "../assets/overview/planet-neptune.svg",
       "internal": "../assets/structure/planet-neptune-internal.svg"
+    },
+    "models": {
+      "model": "../assets/models/neptune/neptune.glb",
+      "ar": "../assets/models/neptune/neptune.usdz",
+      "poster": "../assets/models/neptune/poster.webp"
     }
   }
 ]

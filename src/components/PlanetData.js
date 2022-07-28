@@ -68,13 +68,16 @@ const ListContainer = styled.div`
 `;
 
 const Title = styled.dt`
+  @media (${QUERIES.mobileS}) {
+    font-size: 0.675rem;
+  }
+
   color: ${COLORS.secondary};
-  font-size: 0.5rem;
+  font-size: 0.75rem;
   letter-spacing: 0.73px;
   font-weight: ${FONTWEIGHT.bold};
 
   @media (${QUERIES.laptop}) {
-    font-size: 0.6875rem;
     margin-bottom: 0.875rem;
   }
 `;

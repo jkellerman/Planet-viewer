@@ -36,7 +36,7 @@ const Tabs = () => {
             onClick={() => setCurrentTab("surface")}
           >
             <Num>03&nbsp;</Num>
-            surface<ExtraText>&nbsp;geology (3d viewer)</ExtraText>
+            surface<ExtraText>&nbsp;geology</ExtraText>
           </Tab>
         </TabList>
       </TabsContainer>
@@ -59,7 +59,7 @@ const TabsContainer = styled.div`
 
   @media (${QUERIES.laptop}) {
     grid-area: 3 / 3;
-    transform: translateY(-8.5rem);
+    transform: translateY(-7.5rem);
     max-width: 350px;
   }
 `;
@@ -102,17 +102,26 @@ const Tab = styled.button`
     border-bottom-color: ${({ currentTab, theme }) => {
       if (currentTab === "overview") return `${theme.color}`;
     }};
+    color: ${({ currentTab }) => {
+      if (currentTab === "overview") return `${COLORS.primary}`;
+    }};
   }
 
   &:nth-child(2) {
     border-bottom-color: ${({ currentTab, theme }) => {
       if (currentTab === "structure") return `${theme.color}`;
     }};
+    color: ${({ currentTab }) => {
+      if (currentTab === "structure") return `${COLORS.primary}`;
+    }};
   }
 
   &:nth-child(3) {
     border-bottom-color: ${({ currentTab, theme }) => {
       if (currentTab === "surface") return `${theme.color}`;
+    }};
+    color: ${({ currentTab }) => {
+      if (currentTab === "surface") return `${COLORS.primary}`;
     }};
   }
 

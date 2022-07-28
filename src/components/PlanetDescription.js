@@ -49,14 +49,14 @@ const PlanetDescription = () => {
 const PlanetDescriptionContainer = styled.div`
   text-align: center;
   margin-bottom: 1.75rem;
-  font-size: 0.6875rem;
+  font-size: 0.85rem;
 
   @media (${QUERIES.tablet}) {
     text-align: start;
   }
 
   @media (${QUERIES.laptop}) {
-    font-size: 0.875rem;
+    font-size: 1rem;
     grid-area: 1 / 3;
     grid-row: 1 / span 2;
     align-self: center;
@@ -77,7 +77,6 @@ const PlanetDescriptionContainer = styled.div`
     }
 
     @media (${QUERIES.laptop}) {
-      font-size: 0.875rem;
       width: 95%;
       height: 154px;
       margin: 0;
@@ -93,11 +92,11 @@ const Source = styled.div`
 
   @media (${QUERIES.tablet}) {
     justify-content: flex-start;
-    font-size: 0.75rem;
+    /* font-size: 0.75rem; */
   }
 
   @media (${QUERIES.laptop}) {
-    transform: translateY(-1.5rem);
+    transform: translateY(-0.5rem);
   }
 
   span,

@@ -317,7 +317,7 @@ const StyledNavLink = styled(NavLink)`
   position: relative;
 
   @media (${QUERIES.tablet}) {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     margin-left: unset;
     letter-spacing: 1px;
     opacity: 0.7;
