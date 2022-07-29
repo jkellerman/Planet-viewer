@@ -14,25 +14,21 @@ const GlobalStyles = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
 }
 
-body, h3, h4 {
+body {
   font-family: ${FONTFAMILY.spartan}, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  
-}
-
-h1, h2, dd {
-  font-family: ${FONTFAMILY.antonio}, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-}
-
-body {
-  background-color: ${COLORS.background};
+    background-color: ${COLORS.background};
   background-image: url('../assets/background-stars.svg');
   background-repeat: no-repeat;
   background-size: cover;
   color: ${COLORS.primary};
+}
+
+h1, dd {
+  font-family: ${FONTFAMILY.antonio}, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 .no-scroll {
@@ -46,26 +42,6 @@ body {
 model-viewer {
 height: 100%;
 width: 100%;
-}
-
-#lazy-load-poster {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: transparent;
-}
-#progress {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-model-viewer#reveal {
-  --poster-color: transparent;
 }
 
 `;

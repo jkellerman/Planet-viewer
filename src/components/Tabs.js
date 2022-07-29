@@ -137,21 +137,27 @@ const Tab = styled.button`
     transition: all 200ms ease-in-out;
 
     &:nth-child(1) {
-      border-bottom-color: ${COLORS.hoverTab};
+      border-color: ${({ currentTab, theme }) => {
+        if (currentTab === "overview") return `${theme.color}`;
+      }};
       background: ${({ currentTab, theme }) => {
         if (currentTab === "overview") return `${theme.color}`;
       }};
     }
 
     &:nth-child(2) {
-      border-bottom-color: ${COLORS.hoverTab};
+      border-color: ${({ currentTab, theme }) => {
+        if (currentTab === "structure") return `${theme.color}`;
+      }};
       background: ${({ currentTab, theme }) => {
         if (currentTab === "structure") return `${theme.color}`;
       }};
     }
 
     &:nth-child(3) {
-      border-bottom-color: ${COLORS.hoverTab};
+      border-color: ${({ currentTab, theme }) => {
+        if (currentTab === "surface") return `${theme.color}`;
+      }};
       background: ${({ currentTab, theme }) => {
         if (currentTab === "surface") return `${theme.color}`;
       }};
@@ -159,6 +165,7 @@ const Tab = styled.button`
 
     &:hover {
       background: ${COLORS.hoverTab};
+      border-color: ${COLORS.hoverTab};
     }
   }
 

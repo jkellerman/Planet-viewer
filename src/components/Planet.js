@@ -20,6 +20,8 @@ const Planet = () => {
           auto-rotate
           ar
           ios-src={models.ios}
+          poster={models.poster}
+          disable-zoom
         >
           <div id="lazy-load-poster" slot="poster"></div>
           <div id="progress-bar" slot="progress-bar"></div>

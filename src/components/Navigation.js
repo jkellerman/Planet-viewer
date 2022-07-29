@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { usePlanetFactsContext } from "../context/context";
 import styled from "styled-components";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { QUERIES, COLORS, FONTFAMILY, FONTWEIGHT } from "../utils/variables";
 import {
   flexRowSpaceBetween,
@@ -27,7 +27,15 @@ const Navigation = (props) => {
   return (
     <Header>
       <HeaderContainer>
-        <Title>planet viewer</Title>
+        <StyledLink
+          to="/planet/earth"
+          onClick={() => {
+            setIsNavOpen(false);
+            setCurrentTab("overview");
+          }}
+        >
+          planet viewer
+        </StyledLink>
         <NavButton type="button" onClick={() => toggleMenu()}>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="17">
             <g
@@ -192,13 +200,15 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const Title = styled.div`
+const StyledLink = styled(Link)`
   font-size: 1.75rem;
   text-transform: uppercase;
   letter-spacing: -1.05px;
   font-family: ${FONTFAMILY.antonio}, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
+  color: ${COLORS.primary};
+  text-decoration: none;
 
   @media (${QUERIES.tablet}) {
     margin-bottom: 2.4375rem;
