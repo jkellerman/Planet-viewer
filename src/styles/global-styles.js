@@ -15,14 +15,12 @@ const GlobalStyles = createGlobalStyle`
 }
 
 body {
-  font-family: ${FONTFAMILY.spartan}, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    font-family: ${FONTFAMILY.spartan}, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
     background-color: ${COLORS.background};
-  background-image: url('../assets/background-stars.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  color: ${COLORS.primary};
+    background-image: url('../assets/background-stars.svg');
+    color: ${COLORS.primary};
 }
 
 h1, dd {

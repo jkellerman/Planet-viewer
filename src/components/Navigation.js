@@ -3,6 +3,7 @@ import { usePlanetFactsContext } from "../context/context";
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
 import { QUERIES, COLORS, FONTFAMILY, FONTWEIGHT } from "../utils/variables";
+// import { motion } from "framer-motion";
 import {
   flexRowSpaceBetween,
   flexColumnSpaceBetween,
@@ -11,13 +12,27 @@ import {
   calculateBackgrounds,
 } from "../utils/helpers";
 
-const Navigation = (props) => {
+// const navVariants = {
+//   hidden: {
+//     opacity: 0,
+//     x: "100vw",
+//   },
+//   visible: {
+//     opacity: 1,
+//     x: 0,
+//     transition: {
+//       type: "spring",
+//       delay: 0.5,
+//     },
+//   },
+// };
+
+const Navigation = () => {
   const { setCurrentTab } = usePlanetFactsContext();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleMenu = () => {
     setIsNavOpen(!isNavOpen);
   };
-
   useEffect(() => {
     const body = document.querySelector("body");
     if (isNavOpen) return body.classList.add("no-scroll");
@@ -28,7 +43,7 @@ const Navigation = (props) => {
     <Header>
       <HeaderContainer>
         <StyledLink
-          to="/planet/earth"
+          to="/planet/mercury"
           onClick={() => {
             setIsNavOpen(false);
             setCurrentTab("overview");
@@ -46,7 +61,12 @@ const Navigation = (props) => {
             </g>
           </svg>
         </NavButton>
-        <Nav isNavOpen={isNavOpen}>
+        <Nav
+          isnavopen={isNavOpen.toString()}
+          // variants={navVariants}
+          // // initial="hidden"
+          // animate={isNavOpen ? "hidden" : "visible"}
+        >
           <ul>
             <li>
               <StyledNavLinkContainer>
@@ -79,7 +99,7 @@ const Navigation = (props) => {
             <li>
               <StyledNavLinkContainer>
                 <StyledNavLink
-                  to="/"
+                  to="/planet/earth"
                   onClick={() => {
                     setIsNavOpen(false);
                     setCurrentTab("overview");
@@ -239,7 +259,7 @@ const Nav = styled.nav`
   width: 100vw;
   height: 100vh;
   background: ${COLORS.background};
-  display: ${({ isNavOpen }) => (isNavOpen ? "block" : "none")};
+  display: ${({ isnavopen }) => (isnavopen === "false" ? "none" : "block")};
 
   @media (${QUERIES.tablet}) {
     display: block;

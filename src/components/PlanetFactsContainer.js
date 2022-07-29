@@ -20,10 +20,8 @@ const PlanetFactsContainer = () => {
 
 const Container = styled.div`
   display: grid;
-  /* flex-direction: column; */
 
   @media (${QUERIES.tablet}) {
-    display: grid;
     justify-items: center;
     align-items: center;
     width: 90%;

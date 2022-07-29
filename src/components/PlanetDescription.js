@@ -9,6 +9,7 @@ const PlanetDescription = () => {
   const { planetName } = useParams();
   const planets = data.find((planet) => planet.name === planetName);
   const { overview, structure, geology } = planets;
+
   return (
     <PlanetDescriptionContainer>
       <Name>{planetName}</Name>
@@ -92,7 +93,6 @@ const Source = styled.div`
 
   @media (${QUERIES.tablet}) {
     justify-content: flex-start;
-    /* font-size: 0.75rem; */
   }
 
   @media (${QUERIES.laptop}) {

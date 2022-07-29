@@ -4,7 +4,7 @@ import PlanetFactsContainer from "../components/PlanetFactsContainer";
 const PlanetPage = () => {
   return (
     <>
-      <Navigation isNavOpen />
+      <Navigation />
       <PlanetFactsContainer />
     </>
   );

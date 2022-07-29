@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data/data.json";
 import { QUERIES, MODELSIZES } from "../utils/variables";
+import { motion } from "framer-motion";
 
 const Planet = () => {
   const { planetName } = useParams();
@@ -11,7 +12,16 @@ const Planet = () => {
   const { size } = model;
 
   return (
-    <PlanetContainer>
+    <PlanetContainer
+      initial={{ x: "-100vw" }}
+      animate={{ x: 0 }}
+      transition={{
+        ease: "easeInOut",
+        type: "spring",
+        stiffness: "50",
+      }}
+      exit={{ x: "-100vw", transition: { ease: "easeInOut" } }}
+    >
       <ModelContainer size={size}>
         <model-viewer
           alt={`A 3D model of the planet ${planetName}`}
@@ -31,7 +41,7 @@ const Planet = () => {
   );
 };
 
-const PlanetContainer = styled.div`
+const PlanetContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,30 +59,18 @@ const PlanetContainer = styled.div`
 `;
 
 const ModelContainer = styled.div`
-  height: ${({ size }) => {
-    return `calc(${size} / 2.61)`;
-  }};
-  width: ${({ size }) => {
-    return `calc(${size} / 2.61)`;
-  }};
+  height: ${({ size }) => `calc(${size} / 2.61)`};
+  width: ${({ size }) => `calc(${size} / 2.61)`};
 
   @media (${QUERIES.tablet}) {
-    height: ${({ size }) => {
-      return `calc(${size} / 1.58)`;
-    }};
-    width: ${({ size }) => {
-      return `calc(${size} / 1.58)`;
-    }};
+    height: ${({ size }) => `calc(${size} / 1.58)`};
+    width: ${({ size }) => `calc(${size} / 1.58)`};
   }
 
   @media (${QUERIES.laptop}) {
     transform: translateX(-1.5rem);
-    height: ${({ size }) => {
-      return `${size}`;
-    }};
-    width: ${({ size }) => {
-      return `${size}`;
-    }};
+    height: ${({ size }) => `${size}`};
+    width: ${({ size }) => `${size}`};
   }
 `;
 
