@@ -2,8 +2,14 @@ import { useState, useEffect } from "react";
 import { usePlanetFactsContext } from "../context/context";
 import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
-import { QUERIES, COLORS, FONTFAMILY, FONTWEIGHT } from "../utils/variables";
-// import { motion } from "framer-motion";
+import {
+  QUERIES,
+  COLORS,
+  FONTFAMILY,
+  FONTWEIGHT,
+  LINKS,
+} from "../utils/variables";
+import { motion } from "framer-motion";
 import {
   flexRowSpaceBetween,
   flexColumnSpaceBetween,
@@ -11,21 +17,6 @@ import {
   centerDiv,
   calculateBackgrounds,
 } from "../utils/helpers";
-
-// const navVariants = {
-//   hidden: {
-//     opacity: 0,
-//     x: "100vw",
-//   },
-//   visible: {
-//     opacity: 1,
-//     x: 0,
-//     transition: {
-//       type: "spring",
-//       delay: 0.5,
-//     },
-//   },
-// };
 
 const Navigation = () => {
   const { setCurrentTab } = usePlanetFactsContext();
@@ -61,126 +52,28 @@ const Navigation = () => {
             </g>
           </svg>
         </NavButton>
-        <Nav
-          isnavopen={isNavOpen.toString()}
-          // variants={navVariants}
-          // // initial="hidden"
-          // animate={isNavOpen ? "hidden" : "visible"}
-        >
-          <ul>
-            <li>
-              <StyledNavLinkContainer>
-                <StyledNavLink
-                  to="/planet/mercury"
-                  onClick={() => {
-                    setIsNavOpen(false);
-                    setCurrentTab("overview");
-                  }}
-                >
-                  mercury
-                </StyledNavLink>
-                <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
-              </StyledNavLinkContainer>
-            </li>
-            <li>
-              <StyledNavLinkContainer>
-                <StyledNavLink
-                  to="/planet/venus"
-                  onClick={() => {
-                    setIsNavOpen(false);
-                    setCurrentTab("overview");
-                  }}
-                >
-                  venus
-                </StyledNavLink>
-                <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
-              </StyledNavLinkContainer>
-            </li>
-            <li>
-              <StyledNavLinkContainer>
-                <StyledNavLink
-                  to="/planet/earth"
-                  onClick={() => {
-                    setIsNavOpen(false);
-                    setCurrentTab("overview");
-                  }}
-                >
-                  earth
-                </StyledNavLink>
-                <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
-              </StyledNavLinkContainer>
-            </li>
-            <li>
-              <StyledNavLinkContainer>
-                <StyledNavLink
-                  to="/planet/mars"
-                  onClick={() => {
-                    setIsNavOpen(false);
-                    setCurrentTab("overview");
-                  }}
-                >
-                  mars
-                </StyledNavLink>
-                <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
-              </StyledNavLinkContainer>
-            </li>
-            <li>
-              <StyledNavLinkContainer>
-                <StyledNavLink
-                  to="/planet/jupiter"
-                  onClick={() => {
-                    setIsNavOpen(false);
-                    setCurrentTab("overview");
-                  }}
-                >
-                  jupiter
-                </StyledNavLink>
-                <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
-              </StyledNavLinkContainer>
-            </li>
-            <li>
-              <StyledNavLinkContainer>
-                <StyledNavLink
-                  to="/planet/saturn"
-                  onClick={() => {
-                    setIsNavOpen(false);
-                    setCurrentTab("overview");
-                  }}
-                >
-                  saturn
-                </StyledNavLink>
-                <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
-              </StyledNavLinkContainer>
-            </li>
-            <li>
-              <StyledNavLinkContainer>
-                <StyledNavLink
-                  to="/planet/uranus"
-                  onClick={() => {
-                    setIsNavOpen(false);
-                    setCurrentTab("overview");
-                  }}
-                >
-                  uranus
-                </StyledNavLink>
-                <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
-              </StyledNavLinkContainer>
-            </li>
-            <li>
-              <StyledNavLinkContainer>
-                <StyledNavLink
-                  to="/planet/neptune"
-                  onClick={() => {
-                    setIsNavOpen(false);
-                    setCurrentTab("overview");
-                  }}
-                >
-                  neptune
-                </StyledNavLink>
-                <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
-              </StyledNavLinkContainer>
-            </li>
-          </ul>
+        <Nav isnavopen={isNavOpen.toString()}>
+          <motion.ul variants={navVariants} animate={isNavOpen && "visible"}>
+            {LINKS.map((link) => {
+              const { id, name } = link;
+              return (
+                <motion.li variants={item} key={id}>
+                  <StyledNavLinkContainer>
+                    <StyledNavLink
+                      to={`/planet/${name}`}
+                      onClick={() => {
+                        setIsNavOpen(false);
+                        setCurrentTab("overview");
+                      }}
+                    >
+                      {name}
+                    </StyledNavLink>
+                    <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
+                  </StyledNavLinkContainer>
+                </motion.li>
+              );
+            })}
+          </motion.ul>
         </Nav>
       </HeaderContainer>
     </Header>
@@ -211,8 +104,13 @@ const HeaderContainer = styled.div`
     ${flexColumnSpaceBetween}
   }
 
+  @media (${QUERIES.tabletL}) {
+    width: 80%;
+  }
+
   @media (${QUERIES.laptop}) {
     ${flexRowSpaceBetween}
+    ${centerDiv}
   }
 
   @media (${QUERIES.desktop}) {
@@ -288,7 +186,7 @@ const Nav = styled.nav`
       list-style: none;
       border-bottom: ${setupBorder({ width: 0.5 })};
       position: relative;
-      cursor: pointer;
+      ${calculateBackgrounds}
 
       &::before {
         content: "";
@@ -321,9 +219,6 @@ const Nav = styled.nav`
       &:last-of-type {
         border-bottom: none;
       }
-
-      ${calculateBackgrounds}
-
       @media (${QUERIES.tablet}) {
         border-bottom: none;
       }
@@ -365,5 +260,21 @@ const Chevron = styled.img`
     display: none;
   }
 `;
+
+// Animations
+
+export const navVariants = {
+  visible: {
+    x: ["-100vw", "0vw"],
+    transition: {
+      ease: "easeInOut",
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const item = {
+  visible: { x: ["-100vw", "0vw"] },
+};
 
 export default Navigation;

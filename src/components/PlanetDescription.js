@@ -71,9 +71,13 @@ const PlanetDescriptionContainer = styled.div`
     line-height: 22px;
     margin-bottom: 2rem;
 
+    @media (${QUERIES.mobileL}) {
+      width: 80%;
+    }
+
     @media (${QUERIES.tablet}) {
       margin: 0 0 2rem;
-      width: 80%;
+      /* width: 80%; */
       height: 110px;
     }
 

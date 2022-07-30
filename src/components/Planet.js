@@ -24,14 +24,15 @@ const Planet = () => {
     >
       <ModelContainer size={size}>
         <model-viewer
+          style={{ width: "100%", height: "100%" }}
           alt={`A 3D model of the planet ${planetName}`}
           src={models.model}
           camera-controls
+          camera-orbit={planetName === "saturn" ? "0deg 86.8deg" : "0deg 75deg"}
           auto-rotate
           ar
           ios-src={models.ios}
           poster={models.poster}
-          disable-zoom
         >
           <div id="lazy-load-poster" slot="poster"></div>
           <div id="progress-bar" slot="progress-bar"></div>
@@ -68,7 +69,6 @@ const ModelContainer = styled.div`
   }
 
   @media (${QUERIES.laptop}) {
-    transform: translateX(-1.5rem);
     height: ${({ size }) => `${size}`};
     width: ${({ size }) => `${size}`};
   }

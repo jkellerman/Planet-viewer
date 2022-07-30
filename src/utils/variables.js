@@ -13,6 +13,20 @@ export const COLORS = {
   neptune: "#2D68F0",
 };
 
+// FONTS
+
+export const FONTFAMILY = {
+  antonio: "Antonio",
+  spartan: "League Spartan",
+};
+
+export const FONTWEIGHT = {
+  regular: 400,
+  bold: 700,
+};
+
+// THEMES FOR TABS
+
 export const THEME = [
   { name: "mercury", color: `${COLORS.mercury}` },
   { name: "venus", color: `${COLORS.venus}` },
@@ -24,15 +38,20 @@ export const THEME = [
   { name: "neptune", color: `${COLORS.neptune}` },
 ];
 
-export const FONTFAMILY = {
-  antonio: "Antonio",
-  spartan: "League Spartan",
-};
+// NAVIGATION
 
-export const FONTWEIGHT = {
-  regular: 400,
-  bold: 700,
-};
+export const LINKS = [
+  { name: "mercury", id: 1 },
+  { name: "venus", id: 2 },
+  { name: "earth", id: 3 },
+  { name: "mars", id: 4 },
+  { name: "jupiter", id: 5 },
+  { name: "saturn", id: 6 },
+  { name: "uranus", id: 7 },
+  { name: "neptune", id: 8 },
+];
+
+// MEDIA QUERIES
 
 const BREAKPOINTS = {
   mobileS: "20em",
@@ -53,6 +72,8 @@ export const QUERIES = {
   laptop: `min-width: ${BREAKPOINTS.laptop}`,
   desktop: `min-width: ${BREAKPOINTS.desktop}`,
 };
+
+// DYNAMIC MODEL SIZES
 
 export const MODELSIZES = [
   { name: "mercury", size: "290px" },

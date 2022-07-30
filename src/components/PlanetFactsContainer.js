@@ -29,7 +29,12 @@ const Container = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
 
+  @media (${QUERIES.tabletL}) {
+    width: 80%;
+  }
+
   @media (${QUERIES.laptop}) {
+    width: 90%;
     max-width: 1110px;
     min-height: 668px;
     margin: 0 auto;

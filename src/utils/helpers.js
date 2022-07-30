@@ -1,7 +1,7 @@
 import { css } from "styled-components";
 import { COLORS, THEME } from "./variables";
 
-// Utility functions
+// Utility Functions
 // ================
 
 // set border
@@ -14,7 +14,7 @@ export const setupBorder = ({
   return `${width}px ${type} ${color}`;
 };
 
-// set unique background color for nav underline and mobile nav bulletpoints/balls
+// set unique background color for nav-line and mobile nav bulletpoints/balls
 
 const getBackgroundColor = (i, colorsIndex) => {
   return `
@@ -35,7 +35,7 @@ export const calculateBackgrounds = () => {
   return str;
 };
 
-// css helper functions
+// CSS Helper Functions
 // ====================
 
 export const centerDiv = css`

@@ -75,6 +75,11 @@ const TabList = styled.div`
     gap: 1.5rem;
   }
 
+  @media (${QUERIES.mobileL}) {
+    justify-content: space-between;
+    width: 80%;
+  }
+
   @media (${QUERIES.tablet}) {
     flex-direction: column;
     gap: 1rem;

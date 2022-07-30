@@ -43,12 +43,21 @@ const List = styled.dl`
   text-transform: uppercase;
   margin-bottom: 3rem;
 
+  @media (${QUERIES.mobileL}) {
+    width: 80%;
+  }
+
   @media (${QUERIES.tablet}) {
+    width: 90%;
     ${flexRowSpaceBetween}
     gap: 0;
   }
+  @media (${QUERIES.tabletL}) {
+    width: 80%;
+  }
 
   @media (${QUERIES.laptop}) {
+    width: 90%;
     max-width: 1110px;
     transform: translateX(-0.55rem);
   }
