@@ -91,6 +91,7 @@ const Header = styled.header`
 
   @media (${QUERIES.laptop}) {
     margin-top: 1.375rem;
+    padding-bottom: 1rem;
   }
 `;
 

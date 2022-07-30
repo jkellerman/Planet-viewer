@@ -55,7 +55,6 @@ export const LINKS = [
 
 const BREAKPOINTS = {
   mobileS: "20em",
-  mobileM: "23.4375em",
   mobileL: "30em",
   tablet: "48em",
   tabletL: "64em",
@@ -65,7 +64,6 @@ const BREAKPOINTS = {
 
 export const QUERIES = {
   mobileS: `max-width: ${BREAKPOINTS.mobileS}`,
-  mobileM: `min-width: ${BREAKPOINTS.mobileM}`,
   mobileL: `min-width: ${BREAKPOINTS.mobileL}`,
   tablet: `min-width: ${BREAKPOINTS.tablet}`,
   tabletL: `min-width: ${BREAKPOINTS.tabletL}`,
@@ -73,13 +71,13 @@ export const QUERIES = {
   desktop: `min-width: ${BREAKPOINTS.desktop}`,
 };
 
-// DYNAMIC MODEL SIZES
+// PLANET MODEL SIZES
 
 export const MODELSIZES = [
   { name: "mercury", size: "290px" },
-  { name: "venus", size: "400px" },
-  { name: "earth", size: "450px" },
-  { name: "mars", size: "336px" },
+  { name: "venus", size: "350px" },
+  { name: "earth", size: "400px" },
+  { name: "mars", size: "320px" },
   { name: "jupiter", size: "582px" },
   { name: "saturn", size: "560px" },
   { name: "uranus", size: `458px` },

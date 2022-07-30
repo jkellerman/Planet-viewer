@@ -93,7 +93,7 @@ const TabList = styled.div`
 const Tab = styled.button`
   color: ${COLORS.secondary};
   text-transform: uppercase;
-  font-size: 0.5625rem;
+  font-size: 0.6875rem;
   font-weight: ${FONTWEIGHT.bold};
   letter-spacing: 1.93px;
   background-color: transparent;
@@ -130,8 +130,13 @@ const Tab = styled.button`
     }};
   }
 
+  @media (${QUERIES.mobileS}) {
+    font-size: 0.5625rem;
+  }
+
   @media (${QUERIES.tablet}) {
     height: 48px;
+    font-size: 0.75rem;
     display: flex;
     align-items: center;
     padding: 0.75rem 1.25rem;
@@ -176,7 +181,6 @@ const Tab = styled.button`
 
   @media (${QUERIES.laptop}) {
     max-width: unset;
-    font-size: 0.75rem;
   }
 `;
 

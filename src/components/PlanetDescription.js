@@ -77,7 +77,6 @@ const PlanetDescriptionContainer = styled.div`
 
     @media (${QUERIES.tablet}) {
       margin: 0 0 2rem;
-      /* width: 80%; */
       height: 110px;
     }
 
