@@ -74,10 +74,10 @@ export const QUERIES = {
 // PLANET MODEL SIZES
 
 export const MODELSIZES = [
-  { name: "mercury", size: "290px" },
-  { name: "venus", size: "350px" },
-  { name: "earth", size: "400px" },
-  { name: "mars", size: "320px" },
+  { name: "mercury", size: "220px" },
+  { name: "venus", size: "320px" },
+  { name: "earth", size: "370px" },
+  { name: "mars", size: "270px" },
   { name: "jupiter", size: "582px" },
   { name: "saturn", size: "560px" },
   { name: "uranus", size: `458px` },

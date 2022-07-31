@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { usePlanetFactsContext } from "../context/context";
-import styled from "styled-components";
 import { NavLink, Link } from "react-router-dom";
+import styled from "styled-components";
+import { motion } from "framer-motion";
 import {
   QUERIES,
   COLORS,
@@ -9,7 +10,6 @@ import {
   FONTWEIGHT,
   LINKS,
 } from "../utils/variables";
-import { motion } from "framer-motion";
 import {
   flexRowSpaceBetween,
   flexColumnSpaceBetween,
@@ -24,6 +24,7 @@ const Navigation = () => {
   const toggleMenu = () => {
     setIsNavOpen(!isNavOpen);
   };
+
   useEffect(() => {
     const body = document.querySelector("body");
     if (isNavOpen) return body.classList.add("no-scroll");
@@ -42,7 +43,11 @@ const Navigation = () => {
         >
           planet viewer
         </StyledLink>
-        <NavButton type="button" onClick={() => toggleMenu()}>
+        <NavButton
+          aria-label="open menu"
+          type="button"
+          onClick={() => toggleMenu()}
+        >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="17">
             <g
               fill={isNavOpen ? `${COLORS.hoverTab}` : `${COLORS.primary}`}

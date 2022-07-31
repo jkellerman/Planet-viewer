@@ -93,7 +93,7 @@ const TabList = styled.div`
 const Tab = styled.button`
   color: ${COLORS.secondary};
   text-transform: uppercase;
-  font-size: 0.6875rem;
+  font-size: 0.5625rem;
   font-weight: ${FONTWEIGHT.bold};
   letter-spacing: 1.93px;
   background-color: transparent;
@@ -128,10 +128,6 @@ const Tab = styled.button`
     color: ${({ currentTab }) => {
       if (currentTab === "surface") return `${COLORS.primary}`;
     }};
-  }
-
-  @media (${QUERIES.mobileS}) {
-    font-size: 0.5625rem;
   }
 
   @media (${QUERIES.tablet}) {

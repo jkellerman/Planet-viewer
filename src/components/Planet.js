@@ -60,12 +60,12 @@ const PlanetContainer = styled(motion.div)`
 `;
 
 const ModelContainer = styled.div`
-  height: ${({ size }) => `calc(${size} / 2.61)`};
-  width: ${({ size }) => `calc(${size} / 2.61)`};
+  height: ${({ size }) => `calc(${size} / 2)`};
+  width: ${({ size }) => `calc(${size} / 2)`};
 
   @media (${QUERIES.tablet}) {
-    height: ${({ size }) => `calc(${size} / 1.58)`};
-    width: ${({ size }) => `calc(${size} / 1.58)`};
+    height: ${({ size }) => `calc(${size} / 1.35)`};
+    width: ${({ size }) => `calc(${size} / 1.35)`};
   }
 
   @media (${QUERIES.laptop}) {
