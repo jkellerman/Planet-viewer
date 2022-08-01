@@ -1,70 +1,87 @@
-# Getting Started with Create React App
+# Frontend Mentor - Planets fact site solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+  - [Built with](#built-with)
+- [My process](#my-process)
+  - [What I learned](#what-i-learned)
+  - [Future development](#future-development)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- Make the app fully responsive
+- See hover states for all interactive elements on the page
+- View each planet page and toggle between "Overview", "Internal Structure", and "Surface Geology"
+- Themes for each planet
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Added Features
 
-### `npm run build`
+- View each planet in 3D with the ability to rotate.
+- View in augmented reality on iOS.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 📸 Preview
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![preview](preview.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🔗 Links
 
-### `npm run eject`
+- Solution URL: [Solution](https://github.com/jkellerman/planet-viewer)
+- Live Site URL: [Live](https://planetviewer.netlify.app)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🧰 Built with
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [React](https://reactjs.org/) - JS library
+- [Styled Components](https://styled-components.com/) - For styles
+- [Model-viewer](https://modelviewer.dev/) - 3D/AR Models
+- [Framer-motion](https://www.framer.com/motion/) - For animations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## My process
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+I've always been intrigued by the planets, so I was really excited to complete this challenge but also add my own spin on it 🌍. I decided to style my app with Styled Components because I've been styling my react applications this way recently and have found it to be a much better developer experience when styling within the component you're working on. It also works really well when building each component across all breakpoints with a mobile-first workflow.
 
-## Learn More
+There were some tricky styling challenges along the way, one example being the navigation. I could have built a separate nav as a sidebar for mobile screens but I decided it would be much cleaner to just build one and alter the styling at each breakpoint. Each nav link had an overline in desktop and a bullet point in mobile navigation which I built using pseudo elements and changed their shape in the corresponding media query. As each nav link had it's own unique color for pseudo elements, the long option would have been to write out each nth child pseudo element, but I found a more elegant way (see snippet below), which was to create a js function that loops through the theme array that I created and then returns the colour based on the index. I would then call the function within the styled component.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+const getBackgroundColor = (i, colorsIndex) => {
+  return `
+    &:nth-child(${i + 1}n)::before{
+      background: ${THEME[colorsIndex++].color};
+    }
+  `;
+};
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+export const calculateBackgrounds = () => {
+  let str = "";
+  let colorsIndex = -1;
+  for (let index = 0; index < THEME.length; index++) {
+    colorsIndex++;
+    if (colorsIndex === colorsIndex.length - 1) colorsIndex = 0;
+    str += getBackgroundColor(index, colorsIndex);
+  }
+  return str;
+};
+```
 
-### Code Splitting
+I created a pages file where I placed the components that would be shared across each route. When switching route, the tab needed to default back to overview which would have required some prop drilling, so I used the Context API which held state for the current tab. This would then enable me to **useContext** across the application when switching routes and conditionally rendering planet descriptions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+As for the models, they were actually pretty easy to implement during development, however I strumbled across a few issues when switching routes. The images for the planet between renders would spill over into the the next one. For example, if I am on mars and then switch to Jupiter, as Jupiter is much larger, the image of mars would flash before Jupiter at Jupiters size which looked very clunky. Luckily, I was able to solve this was using animations to make the planet transition out of the viewport before the next planet transitioned in, so using framer motion was very handy here.
 
-### Analyzing the Bundle Size
+I also stumbled across a problem in production, where my application my header and main elements were duplicating themselves on first load. I had to retrace my steps to figure out what was going on. Turns out I had implemented animated presence incorrectly on my routes based on a tutorial I was following. I had put the routes key as as location.key, with some digging I found that it should be changed to location.pathname and the issue was resolved.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 🧑‍💻 Future development
 
-### Making a Progressive Web App
+In hindsight, there were a few things that I would probably have done differently in relation to performance, but these are things that I have learned during the process and will continue to educate myself on to make better apps in the future. In reality, models will always take time to load, however there are a few solutions to allow for better user experience. This is where **lazy loading** comes in. The models will take a few seconds to render but I added a poster file so that an image is displayed before the model fully loads which means less time for the user to be staring at nothing.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+I also went in quite blindly rendering 3d models using framer motion animations as there isn't much information out there about doing this. If the client has good internet speed then it actually works pretty well, however if they are on fast 3G or worse, it will take some time for the models to load.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+However, this has peaked my interest in how to make web apps more performant, such as how to reduce unused Javascript and the potential for steering away from css-in-js to minimise main-thread work.
