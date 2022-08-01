@@ -13,17 +13,18 @@ const Planet = () => {
   const { size } = model;
 
   return (
-    <PlanetContainer
-      initial={{ x: "-100vw" }}
-      animate={{ x: 0 }}
-      transition={{
-        ease: "easeInOut",
-        type: "spring",
-        stiffness: "50",
-      }}
-      exit={{ x: "-100vw", transition: { ease: "easeInOut" } }}
-    >
-      <ModelContainer size={size}>
+    <PlanetContainer>
+      <ModelContainer
+        size={size}
+        initial={{ x: "-100vw" }}
+        animate={{ x: 0 }}
+        transition={{
+          ease: "easeInOut",
+          type: "spring",
+          stiffness: "50",
+        }}
+        exit={{ x: "-100vw", transition: { ease: "easeInOut" } }}
+      >
         <model-viewer
           style={{ width: "100%", height: "100%" }}
           alt={`A 3D model of the planet ${planetName}`}
@@ -43,7 +44,7 @@ const Planet = () => {
   );
 };
 
-const PlanetContainer = styled(motion.div)`
+const PlanetContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +61,7 @@ const PlanetContainer = styled(motion.div)`
   }
 `;
 
-const ModelContainer = styled.div`
+const ModelContainer = styled(motion.div)`
   height: ${({ size }) => `calc(${size} / 2)`};
   width: ${({ size }) => `calc(${size} / 2)`};
 
