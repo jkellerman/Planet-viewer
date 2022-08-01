@@ -43,7 +43,7 @@
     "temperature": "471°c",
     "models": {
       "model": "../assets/models/venus/venus.glb",
-      "ar": "../assets/models/venus/venus.usdz",
+      "ios": "../assets/models/venus/venus.usdz",
       "poster": "../assets/models/venus/poster.webp"
     }
   },
@@ -67,7 +67,7 @@
     "temperature": "16°c",
     "models": {
       "model": "../assets/models/earth/earth.glb",
-      "ar": "../assets/models/earth/earth.usdz",
+      "ios": "../assets/models/earth/earth.usdz",
       "poster": "../assets/models/earth/poster.webp"
     }
   },
@@ -91,7 +91,7 @@
     "temperature": "-28°c",
     "models": {
       "model": "../assets/models/mars/mars.glb",
-      "ar": "../assets/models/mars/mars.usdz",
+      "ios": "../assets/models/mars/mars.usdz",
       "poster": "../assets/models/mars/poster.webp"
     }
   },
@@ -115,7 +115,7 @@
     "temperature": "-108°c",
     "models": {
       "model": "../assets/models/jupiter/jupiter.glb",
-      "ar": "../assets/models/jupiter/jupiter.usdz",
+      "ios": "../assets/models/jupiter/jupiter.usdz",
       "poster": "../assets/models/jupiter/poster.webp"
     }
   },
@@ -139,7 +139,7 @@
     "temperature": "-138°c",
     "models": {
       "model": "../assets/models/saturn/saturn.glb",
-      "ar": "../assets/models/saturn/saturn.usdz",
+      "ios": "../assets/models/saturn/saturn.usdz",
       "poster": "../assets/models/saturn/poster.webp"
     }
   },
@@ -163,7 +163,7 @@
     "temperature": "-195°c",
     "models": {
       "model": "../assets/models/uranus/uranus.glb",
-      "ar": "../assets/models/uranus/uranus.usdz",
+      "ios": "../assets/models/uranus/uranus.usdz",
       "poster": "../assets/models/uranus/poster.webp"
     }
   },
@@ -187,7 +187,7 @@
     "temperature": "-201°c",
     "models": {
       "model": "../assets/models/neptune/neptune.glb",
-      "ar": "../assets/models/neptune/neptune.usdz",
+      "ios": "../assets/models/neptune/neptune.usdz",
       "poster": "../assets/models/neptune/poster.webp"
     }
   }
