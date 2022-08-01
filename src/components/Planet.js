@@ -3,6 +3,7 @@ import styled from "styled-components";
 import data from "../data/data.json";
 import { QUERIES, MODELSIZES } from "../utils/variables";
 import { motion } from "framer-motion";
+import "@google/model-viewer";
 
 const Planet = () => {
   const { planetName } = useParams();
@@ -12,16 +13,7 @@ const Planet = () => {
   const { size } = model;
 
   return (
-    <PlanetContainer
-      initial={{ x: "-100vw" }}
-      animate={{ x: 0 }}
-      transition={{
-        ease: "easeInOut",
-        type: "spring",
-        stiffness: "50",
-      }}
-      exit={{ x: "-100vw", transition: { ease: "easeInOut" } }}
-    >
+    <PlanetContainer exit={{ x: "-100vw", transition: { ease: "easeInOut" } }}>
       <ModelContainer size={size}>
         <model-viewer
           style={{ width: "100%", height: "100%" }}
@@ -30,8 +22,6 @@ const Planet = () => {
           camera-controls
           camera-orbit={planetName === "saturn" ? "0deg 86.8deg" : "0deg 75deg"}
           auto-rotate
-          ar
-          ios-src={models.ios}
           poster={models.poster}
         >
           <div id="lazy-load-poster" slot="poster"></div>
