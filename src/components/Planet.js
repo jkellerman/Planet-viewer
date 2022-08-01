@@ -3,6 +3,7 @@ import styled from "styled-components";
 import data from "../data/data.json";
 import { QUERIES, MODELSIZES } from "../utils/variables";
 import { motion } from "framer-motion";
+import "@google/model-viewer";
 
 const Planet = () => {
   const { planetName } = useParams();

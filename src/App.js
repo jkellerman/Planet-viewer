@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <GlobalStyles />
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         <Routes location={location} key={location.key}>
           <Route path="/" element={<Navigate to="/planet/mercury" />} />
           <Route path="planet/:planetName" element={<PlanetPage />} />
