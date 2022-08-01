@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { usePlanetFactsContext } from "../context/context";
 import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import {
   QUERIES,
   COLORS,
@@ -58,11 +57,11 @@ const Navigation = () => {
           </svg>
         </NavButton>
         <Nav isnavopen={isNavOpen.toString()}>
-          <motion.ul variants={navVariants} animate={isNavOpen && "visible"}>
+          <ul>
             {LINKS.map((link) => {
               const { id, name } = link;
               return (
-                <motion.li variants={item} key={id}>
+                <li key={id}>
                   <StyledNavLinkContainer>
                     <StyledNavLink
                       to={`/planet/${name}`}
@@ -75,10 +74,10 @@ const Navigation = () => {
                     </StyledNavLink>
                     <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
                   </StyledNavLinkContainer>
-                </motion.li>
+                </li>
               );
             })}
-          </motion.ul>
+          </ul>
         </Nav>
       </HeaderContainer>
     </Header>
@@ -266,21 +265,5 @@ const Chevron = styled.img`
     display: none;
   }
 `;
-
-// Animations
-
-export const navVariants = {
-  visible: {
-    x: ["-100vw", "0vw"],
-    transition: {
-      ease: "easeInOut",
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const item = {
-  visible: { x: ["-100vw", "0vw"] },
-};
 
 export default Navigation;

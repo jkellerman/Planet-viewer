@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data/data.json";
 import { QUERIES, MODELSIZES } from "../utils/variables";
-import { motion } from "framer-motion";
 
 const Planet = () => {
   const { planetName } = useParams();
@@ -12,16 +11,7 @@ const Planet = () => {
   const { size } = model;
 
   return (
-    <PlanetContainer
-      initial={{ x: "-100vw" }}
-      animate={{ x: 0 }}
-      transition={{
-        ease: "easeInOut",
-        type: "spring",
-        stiffness: "50",
-      }}
-      exit={{ x: "-100vw", transition: { ease: "easeInOut" } }}
-    >
+    <PlanetContainer>
       <ModelContainer size={size}>
         <model-viewer
           style={{ width: "100%", height: "100%" }}
@@ -42,7 +32,7 @@ const Planet = () => {
   );
 };
 
-const PlanetContainer = styled(motion.div)`
+const PlanetContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
