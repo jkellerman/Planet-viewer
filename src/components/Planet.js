@@ -16,13 +16,6 @@ const Planet = () => {
     <PlanetContainer>
       <ModelContainer
         size={size}
-        initial={{ x: "-100vw" }}
-        animate={{ x: 0 }}
-        transition={{
-          ease: "easeInOut",
-          type: "spring",
-          stiffness: "50",
-        }}
         exit={{ x: "-100vw", transition: { ease: "easeInOut" } }}
       >
         <model-viewer
