@@ -51,6 +51,11 @@ h1, dd {
   }
 }
 
+model-viewer#reveal {
+  --poster-color: transparent;
+}
+
+
 @keyframes animatedBackground {
   0% {
     background-position: 0% 0%

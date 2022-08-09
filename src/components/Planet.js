@@ -19,19 +19,18 @@ const Planet = () => {
         exit={{ x: "-100vw", transition: { ease: "easeInOut" } }}
       >
         <model-viewer
+          id="reveal"
           style={{ width: "100%", height: "100%" }}
           alt={`A 3D model of the planet ${planetName}`}
           src={models.model}
           camera-controls
-          camera-orbit={planetName === "saturn" ? "0deg 86.8deg" : "0deg 75deg"}
+          camera-orbit={planetName === "saturn" ? "0deg 88deg" : "0deg 75deg"}
           auto-rotate
           ar
           ios-src={models.ios}
           poster={models.poster}
-          reveal="auto"
-          loading="lazy"
+          loading="eager"
         >
-          <div id="lazy-load-poster" slot="poster"></div>
           <div id="progress-bar" slot="progress-bar"></div>
         </model-viewer>
       </ModelContainer>
