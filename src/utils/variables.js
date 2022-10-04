@@ -25,30 +25,17 @@ export const FONTWEIGHT = {
   bold: 700,
 };
 
-// THEMES FOR TABS
+// PLANET ID, THEME & SIZES
 
-export const THEME = [
-  { name: "mercury", color: `${COLORS.mercury}` },
-  { name: "venus", color: `${COLORS.venus}` },
-  { name: "earth", color: `${COLORS.earth}` },
-  { name: "mars", color: `${COLORS.mars}` },
-  { name: "jupiter", color: `${COLORS.jupiter}` },
-  { name: "saturn", color: `${COLORS.saturn}` },
-  { name: "uranus", color: `${COLORS.uranus}` },
-  { name: "neptune", color: `${COLORS.neptune}` },
-];
-
-// NAVIGATION
-
-export const LINKS = [
-  { name: "mercury", id: 1 },
-  { name: "venus", id: 2 },
-  { name: "earth", id: 3 },
-  { name: "mars", id: 4 },
-  { name: "jupiter", id: 5 },
-  { name: "saturn", id: 6 },
-  { name: "uranus", id: 7 },
-  { name: "neptune", id: 8 },
+export const PLANETS = [
+  { name: "mercury", id: 1, theme: `${COLORS.mercury}`, size: "290px" },
+  { name: "venus", id: 2, theme: `${COLORS.venus}`, size: "400px" },
+  { name: "earth", id: 3, theme: `${COLORS.earth}`, size: "450px" },
+  { name: "mars", id: 4, theme: `${COLORS.mars}`, size: "336px" },
+  { name: "jupiter", id: 5, theme: `${COLORS.jupiter}`, size: "582px" },
+  { name: "saturn", id: 6, theme: `${COLORS.saturn}`, size: "600px" },
+  { name: "uranus", id: 7, theme: `${COLORS.uranus}`, size: "458px" },
+  { name: "neptune", id: 8, theme: `${COLORS.neptune}`, size: "455px" },
 ];
 
 // MEDIA QUERIES
@@ -70,16 +57,3 @@ export const QUERIES = {
   laptop: `min-width: ${BREAKPOINTS.laptop}`,
   desktop: `min-width: ${BREAKPOINTS.desktop}`,
 };
-
-// PLANET MODEL SIZES
-
-export const MODELSIZES = [
-  { name: "mercury", size: "220px" },
-  { name: "venus", size: "320px" },
-  { name: "earth", size: "370px" },
-  { name: "mars", size: "270px" },
-  { name: "jupiter", size: "582px" },
-  { name: "saturn", size: "560px" },
-  { name: "uranus", size: `458px` },
-  { name: "neptune", size: `450px` },
-];

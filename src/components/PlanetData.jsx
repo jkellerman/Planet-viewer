@@ -8,6 +8,7 @@ import {
   flexRowSpaceBetween,
   setupBorder,
 } from "../utils/helpers";
+import { motion } from "framer-motion";
 
 const PlanetData = () => {
   const { planetName } = useParams();
@@ -15,28 +16,52 @@ const PlanetData = () => {
   const { rotation, revolution, radius, temperature } = planets;
 
   return (
-    <List>
-      <ListContainer>
-        <Title>rotation time</Title>
-        <Data>{rotation}</Data>
-      </ListContainer>
-      <ListContainer>
-        <Title>revolution time</Title>
-        <Data>{revolution}</Data>
-      </ListContainer>
-      <ListContainer>
-        <Title>radius</Title>
-        <Data>{radius}</Data>
-      </ListContainer>
-      <ListContainer>
-        <Title>average temp.</Title>
-        <Data>{temperature}</Data>
-      </ListContainer>
-    </List>
+    <StyledList>
+      <StyledListContainer>
+        <StyledTitle>rotation time</StyledTitle>
+        <StyledData
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.5 } }}
+          exit={{ opacity: 0 }}
+        >
+          {rotation}
+        </StyledData>
+      </StyledListContainer>
+      <StyledListContainer>
+        <StyledTitle>revolution time</StyledTitle>
+        <StyledData
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.5 } }}
+          exit={{ opacity: 0 }}
+        >
+          {revolution}
+        </StyledData>
+      </StyledListContainer>
+      <StyledListContainer>
+        <StyledTitle>radius</StyledTitle>
+        <StyledData
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.5 } }}
+          exit={{ opacity: 0 }}
+        >
+          {radius}
+        </StyledData>
+      </StyledListContainer>
+      <StyledListContainer>
+        <StyledTitle>average temp.</StyledTitle>
+        <StyledData
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1, transition: { delay: 0.5 } }}
+          exit={{ opacity: 0 }}
+        >
+          {temperature}
+        </StyledData>
+      </StyledListContainer>
+    </StyledList>
   );
 };
 
-const List = styled.dl`
+const StyledList = styled.dl`
   ${centerDiv}
   ${flexColumnSpaceBetween}
   gap: .5rem;
@@ -63,7 +88,7 @@ const List = styled.dl`
   }
 `;
 
-const ListContainer = styled.div`
+const StyledListContainer = styled.div`
   border: ${setupBorder({})};
   padding: 1rem 1.5rem;
   ${flexRowSpaceBetween}
@@ -76,7 +101,7 @@ const ListContainer = styled.div`
   }
 `;
 
-const Title = styled.dt`
+const StyledTitle = styled.dt`
   @media (${QUERIES.mobileS}) {
     font-size: 0.675rem;
   }
@@ -90,7 +115,7 @@ const Title = styled.dt`
     margin-bottom: 0.875rem;
   }
 `;
-const Data = styled.dd`
+const StyledData = styled(motion.dd)`
   font-size: 1.25rem;
 
   @media (${QUERIES.tablet}) {
