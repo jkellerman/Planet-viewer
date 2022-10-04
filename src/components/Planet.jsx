@@ -37,14 +37,14 @@ const Planet = () => {
           <img
             src={images.overview}
             alt={planetName}
-            style={{ width: "100%", height: "100%" }}
+            style={{ width: "100%", height: "100%", color: "transparent" }}
           />
         )}
         {currentTab === "structure" && (
           <img
             src={images.structure}
             alt={planetName}
-            style={{ width: "100%", height: "100%" }}
+            style={{ width: "100%", height: "100%", color: "transparent" }}
           />
         )}
         {currentTab === "surface" && (
