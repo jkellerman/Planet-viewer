@@ -1,7 +1,7 @@
 import Navigation from "../components/Navigation";
 import PlanetFactsContainer from "../components/PlanetFactsContainer";
 
-const PlanetPage = () => {
+const Planet = () => {
   return (
     <>
       <Navigation />
@@ -10,4 +10,4 @@ const PlanetPage = () => {
   );
 };
 
-export default PlanetPage;
+export default Planet;

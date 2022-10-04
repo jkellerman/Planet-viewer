@@ -3,12 +3,13 @@ import { usePlanetFactsContext } from "../context/context";
 import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import {
   QUERIES,
   COLORS,
   FONTFAMILY,
   FONTWEIGHT,
-  LINKS,
+  PLANETS,
 } from "../utils/variables";
 import {
   flexRowSpaceBetween,
@@ -19,6 +20,7 @@ import {
 } from "../utils/helpers";
 
 const Navigation = () => {
+  const location = useLocation();
   const { setCurrentTab } = usePlanetFactsContext();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleMenu = () => {
@@ -26,24 +28,31 @@ const Navigation = () => {
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      // When route switches, delay changing current tab state to overview so images/models of planets don't clash when transitioning.
+      setCurrentTab("overview");
+    }, 500);
+  }, [location, setCurrentTab]);
+
+  useEffect(() => {
+    // Prevent user from scrolling when mobile navigation is open
     const body = document.querySelector("body");
     if (isNavOpen) return body.classList.add("no-scroll");
     return body.classList.remove("no-scroll");
   }, [isNavOpen]);
 
   return (
-    <Header>
-      <HeaderContainer>
+    <StyledHeader>
+      <StyledHeaderContainer>
         <StyledLink
           to="/planet/mercury"
           onClick={() => {
             setIsNavOpen(false);
-            setCurrentTab("overview");
           }}
         >
           planet viewer
         </StyledLink>
-        <NavButton
+        <StyledNavButton
           aria-label="open menu"
           type="button"
           onClick={() => toggleMenu()}
@@ -56,10 +65,10 @@ const Navigation = () => {
               <path d="M0 0h24v3H0zM0 7h24v3H0zM0 14h24v3H0z" />
             </g>
           </svg>
-        </NavButton>
-        <Nav isnavopen={isNavOpen.toString()}>
+        </StyledNavButton>
+        <StyledNav isnavopen={isNavOpen.toString()}>
           <motion.ul variants={navVariants} animate={isNavOpen && "visible"}>
-            {LINKS.map((link) => {
+            {PLANETS.map((link) => {
               const { id, name } = link;
               return (
                 <motion.li variants={item} key={id}>
@@ -68,24 +77,26 @@ const Navigation = () => {
                       to={`/planet/${name}`}
                       onClick={() => {
                         setIsNavOpen(false);
-                        setCurrentTab("overview");
                       }}
                     >
                       {name}
                     </StyledNavLink>
-                    <Chevron src="../assets/icon-chevron.svg" alt="chevron" />
+                    <StyledChevron
+                      src="../assets/icon-chevron.svg"
+                      alt="chevron"
+                    />
                   </StyledNavLinkContainer>
                 </motion.li>
               );
             })}
           </motion.ul>
-        </Nav>
-      </HeaderContainer>
-    </Header>
+        </StyledNav>
+      </StyledHeaderContainer>
+    </StyledHeader>
   );
 };
 
-const Header = styled.header`
+const StyledHeader = styled.header`
   margin: 1rem 0 0;
   border-bottom: ${setupBorder({})};
   position: relative;
@@ -100,7 +111,7 @@ const Header = styled.header`
   }
 `;
 
-const HeaderContainer = styled.div`
+const StyledHeaderContainer = styled.div`
   ${centerDiv}
   ${flexRowSpaceBetween}
   margin-bottom: 1rem;
@@ -143,7 +154,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const NavButton = styled.button`
+const StyledNavButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -153,7 +164,7 @@ const NavButton = styled.button`
   }
 `;
 
-const Nav = styled.nav`
+const StyledNav = styled.nav`
   position: absolute;
   z-index: 5;
   ${flexColumnSpaceBetween}
@@ -260,7 +271,7 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const Chevron = styled.img`
+const StyledChevron = styled.img`
   transform: translateX(-0.5rem);
   @media (${QUERIES.tablet}) {
     display: none;

@@ -1,50 +1,50 @@
 import { usePlanetFactsContext } from "../context/context";
 import { useParams } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import { COLORS, FONTWEIGHT, THEME, QUERIES } from "../utils/variables";
+import { COLORS, FONTWEIGHT, PLANETS, QUERIES } from "../utils/variables";
 import { centerDiv, setupBorder } from "../utils/helpers";
 
 const Tabs = () => {
   const { setCurrentTab, currentTab } = usePlanetFactsContext();
   const { planetName } = useParams();
-  const Planet = THEME.find((planet) => planet.name === planetName);
-  const { color } = Planet;
+  const Planet = PLANETS.find((planet) => planet.name === planetName);
+  const { theme } = Planet;
 
   return (
-    <ThemeProvider theme={{ color }}>
-      <TabsContainer>
-        <TabList>
-          <Tab
+    <ThemeProvider theme={{ theme }}>
+      <StyledTabsContainer>
+        <StyledTabList>
+          <StyledTab
             currentTab={currentTab}
             type="button"
             onClick={() => setCurrentTab("overview")}
           >
-            <Num>01&nbsp;</Num>
+            <StyledNum>01&nbsp;</StyledNum>
             overview
-          </Tab>
-          <Tab
+          </StyledTab>
+          <StyledTab
             currentTab={currentTab}
             type="button"
             onClick={() => setCurrentTab("structure")}
           >
-            <Num>02&nbsp;</Num>
-            <ExtraText>internal&nbsp;</ExtraText>structure
-          </Tab>
-          <Tab
+            <StyledNum>02&nbsp;</StyledNum>
+            <StyledExtraText>internal&nbsp;</StyledExtraText>structure
+          </StyledTab>
+          <StyledTab
             currentTab={currentTab}
             type="button"
             onClick={() => setCurrentTab("surface")}
           >
-            <Num>03&nbsp;</Num>
-            surface<ExtraText>&nbsp;geology</ExtraText>
-          </Tab>
-        </TabList>
-      </TabsContainer>
+            <StyledNum>03&nbsp;</StyledNum>
+            surface<StyledExtraText>&nbsp;geology (3D)</StyledExtraText>
+          </StyledTab>
+        </StyledTabList>
+      </StyledTabsContainer>
     </ThemeProvider>
   );
 };
 
-const TabsContainer = styled.div`
+const StyledTabsContainer = styled.div`
   min-width: 100vw;
   border-bottom: ${setupBorder};
 
@@ -64,7 +64,7 @@ const TabsContainer = styled.div`
   }
 `;
 
-const TabList = styled.div`
+const StyledTabList = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -90,7 +90,7 @@ const TabList = styled.div`
   }
 `;
 
-const Tab = styled.button`
+const StyledTab = styled.button`
   color: ${COLORS.secondary};
   text-transform: uppercase;
   font-size: 0.5625rem;
@@ -105,7 +105,7 @@ const Tab = styled.button`
 
   &:nth-child(1) {
     border-bottom-color: ${({ currentTab, theme }) => {
-      if (currentTab === "overview") return `${theme.color}`;
+      if (currentTab === "overview") return `${theme.theme}`;
     }};
     color: ${({ currentTab }) => {
       if (currentTab === "overview") return `${COLORS.primary}`;
@@ -114,7 +114,7 @@ const Tab = styled.button`
 
   &:nth-child(2) {
     border-bottom-color: ${({ currentTab, theme }) => {
-      if (currentTab === "structure") return `${theme.color}`;
+      if (currentTab === "structure") return `${theme.theme}`;
     }};
     color: ${({ currentTab }) => {
       if (currentTab === "structure") return `${COLORS.primary}`;
@@ -123,7 +123,7 @@ const Tab = styled.button`
 
   &:nth-child(3) {
     border-bottom-color: ${({ currentTab, theme }) => {
-      if (currentTab === "surface") return `${theme.color}`;
+      if (currentTab === "surface") return `${theme.theme}`;
     }};
     color: ${({ currentTab }) => {
       if (currentTab === "surface") return `${COLORS.primary}`;
@@ -144,34 +144,36 @@ const Tab = styled.button`
 
     &:nth-child(1) {
       border-color: ${({ currentTab, theme }) => {
-        if (currentTab === "overview") return `${theme.color}`;
+        if (currentTab === "overview") return `${theme.theme}`;
       }};
       background: ${({ currentTab, theme }) => {
-        if (currentTab === "overview") return `${theme.color}`;
+        if (currentTab === "overview") return `${theme.theme}`;
       }};
     }
 
     &:nth-child(2) {
       border-color: ${({ currentTab, theme }) => {
-        if (currentTab === "structure") return `${theme.color}`;
+        if (currentTab === "structure") return `${theme.theme}`;
       }};
       background: ${({ currentTab, theme }) => {
-        if (currentTab === "structure") return `${theme.color}`;
+        if (currentTab === "structure") return `${theme.theme}`;
       }};
     }
 
     &:nth-child(3) {
       border-color: ${({ currentTab, theme }) => {
-        if (currentTab === "surface") return `${theme.color}`;
+        if (currentTab === "surface") return `${theme.theme}`;
       }};
       background: ${({ currentTab, theme }) => {
-        if (currentTab === "surface") return `${theme.color}`;
+        if (currentTab === "surface") return `${theme.theme}`;
       }};
     }
 
-    &:hover {
-      background: ${COLORS.hoverTab};
-      border-color: ${COLORS.hoverTab};
+    @media (hover: hover) {
+      &:hover {
+        background: ${COLORS.hoverTab};
+        border-color: ${COLORS.hoverTab};
+      }
     }
   }
 
@@ -180,7 +182,7 @@ const Tab = styled.button`
   }
 `;
 
-const Num = styled.span`
+const StyledNum = styled.span`
   display: none;
 
   @media (${QUERIES.tablet}) {
@@ -190,7 +192,7 @@ const Num = styled.span`
   }
 `;
 
-const ExtraText = styled.span`
+const StyledExtraText = styled.span`
   display: none;
   @media (${QUERIES.tablet}) {
     display: inline;

@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { COLORS, THEME } from "./variables";
+import { COLORS, PLANETS } from "./variables";
 
 // Utility Functions
 // ================
@@ -19,7 +19,7 @@ export const setupBorder = ({
 const getBackgroundColor = (i, colorsIndex) => {
   return `
     &:nth-child(${i + 1}n)::before{
-      background: ${THEME[colorsIndex++].color};
+      background: ${PLANETS[colorsIndex++].theme};
     }
   `;
 };
@@ -27,7 +27,7 @@ const getBackgroundColor = (i, colorsIndex) => {
 export const calculateBackgrounds = () => {
   let str = "";
   let colorsIndex = -1;
-  for (let index = 0; index < THEME.length; index++) {
+  for (let index = 0; index < PLANETS.length; index++) {
     colorsIndex++;
     if (colorsIndex === colorsIndex.length - 1) colorsIndex = 0;
     str += getBackgroundColor(index, colorsIndex);

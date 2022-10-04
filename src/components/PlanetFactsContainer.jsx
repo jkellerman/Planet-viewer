@@ -8,17 +8,17 @@ import { QUERIES } from "../utils/variables";
 const PlanetFactsContainer = () => {
   return (
     <main>
-      <Container>
+      <StyledContainer>
         <Tabs />
         <Planet />
         <PlanetDescription />
-      </Container>
+      </StyledContainer>
       <PlanetData />
     </main>
   );
 };
 
-const Container = styled.div`
+const StyledContainer = styled.div`
   display: grid;
 
   @media (${QUERIES.tablet}) {
