@@ -1,6 +1,6 @@
-# Frontend Mentor - Planets fact site solution
+# Planet Viewer
 
-This is a solution to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is a solution to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f), with interactive 3d models as an added feature. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -40,26 +40,26 @@ Users should be able to:
 ### 🔗&nbsp;Links
 
 - [Solution](https://github.com/jkellerman/planet-viewer)
-- [Live Site](https://planetviewer.netlify.app)
+- [Live Site](https://planetviewer.net)
 
 ### 🧰&nbsp;Built with
 
 - [React](https://reactjs.org/) - JS library
-- [Styled Components](https://styled-components.com/) - For styles
-- [Model-viewer](https://modelviewer.dev/) - 3D/AR Models
-- [Framer-motion](https://www.framer.com/motion/) - For animations
+- [Styled Components](https://styled-components.com/) - Styling
+- [Model-viewer](https://modelviewer.dev/) - Interactive 3D/AR Models
+- [Framer-motion](https://www.framer.com/motion/) - Animations
 
 ## 💭&nbsp;My process
 
-I've always been fascinated by planets, so I was very excited to complete this challenge. I chose Styled Components to style my app because I've recently been styling my react applications this way and found it to be a much better developer experience when styling within the component you're working on. It also works really well when building each component across all breakpoints with a mobile-first workflow.
+I've always been fascinated by planets, so I was very excited to complete this project. I've been experimenting with Styled Components and found it to be enjoyable styling within the component you're working on. It also works really well when building each component across all breakpoints with a mobile-first workflow.
 
-Along the way, there were some tricky styling challenges, one of which was the navigation. The long way would have been to write out each nth child pseudo element because each nav link had its own unique colour for pseudo elements, but I found a more elegant way (see below), which was to write a js function that iterates over the theme array I created and returns the colour based on the index. The function would then be called within the styled component.
+There were some tricky styling challenges along the way, one of which was the navigation. Because each nav link had its own unique colour for pseudo elements, the long way would have been to write out each nth child pseudo element, but I found a more elegant way (see below) to write a js function that iterates over the theme array I created and returns the colour based on the index. Within the styled component, the function would then be called.
 
 ```js
 const getBackgroundColor = (i, colorsIndex) => {
   return `
     &:nth-child(${i + 1}n)::before{
-      background: ${THEME[colorsIndex++].color};
+      background: ${PLANETS[colorsIndex++].theme};
     }
   `;
 };
@@ -67,16 +67,24 @@ const getBackgroundColor = (i, colorsIndex) => {
 export const calculateBackgrounds = () => {
   let str = "";
   let colorsIndex = -1;
-  for (let index = 0; index < THEME.length; index++) {
+  for (let index = 0; index < PLANETS.length; index++) {
     colorsIndex++;
-    if (colorsIndex === colorsIndex.length - 1) colorsIndex = 0;
     str += getBackgroundColor(index, colorsIndex);
   }
   return str;
 };
 ```
 
-I made a pages file in which I placed the components that would be shared by all routes. When switching routes, the tab needed to be reset to overview, which would have necessitated some prop drilling, so I used the Context API, which held state for the current tab. This would then allow me to `useContext` throughout the app when switching routes and conditionally rendering planet data, images and descriptions.
+```css
+    li {
+      list-style: none;
+      border-bottom: ${setupBorder({ width: 0.5 })};
+      position: relative;
+      ${calculateBackgrounds}
+    }
+```
+
+I made a pages file in which I placed the components that would be shared by all routes. When switching routes, the tab needed to be reset to overview. I wanted to practice using the the Context API, so I chose to `useContext` to hold state for the current tab. This would then allow me to conditionally render planet data, images and descriptions when switching routes without implementing any prop drilling.
 
 The models were actually quite simple to implement during development, but I ran into a few issues when switching paths with framer motion animations. At first, the images for the planet would spill over into the next one between route changes. For example, if I am on Mars and then switch to Jupiter, the image of Mars would flash before Jupiter comes in to the viewport, which looked very clunky. Fortunately, I was able to solve this by utilising the setTimeOut method, which allowed some time before currentTab sets to "overview". This resulted in a much smoother transition.
 
@@ -84,4 +92,4 @@ Models will always take a few seconds to load in reality, but there are a few so
 
 ### 🧑‍💻&nbsp;Update
 
-Originally, I departed from the original design and simply used 3D models instead of images for the overview and structure tabs. The implementation worked fine, but if users have slow network speeds, it can be quite a poor user experience, so I added in the images provided, so the initial pageload and navigation between pages is much better.
+Originally, I departed from the original design and simply used 3D models instead of images for the overview and structure tabs. The implementation worked fine, but if users have slow network speeds, it can be quite a poor user experience, so I added in the images provided, so the initial pageload and navigation between pages are much smoother.

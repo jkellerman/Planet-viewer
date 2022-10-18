@@ -54,10 +54,10 @@ const Planet = () => {
             alt={`A 3D model of the planet ${planetName}`}
             src={models.model}
             camera-controls
-            // changing camera position of saturn when it is rendered, if not saturn set to default angle which is 75deg
             camera-orbit={planetName === "saturn" ? "0deg 88deg" : "0deg 75deg"}
             auto-rotate
             ar
+            ar-placement="wall"
             ios-src={models.ios}
             poster={models.poster}
             loading="eager"

@@ -29,7 +29,6 @@ export const calculateBackgrounds = () => {
   let colorsIndex = -1;
   for (let index = 0; index < PLANETS.length; index++) {
     colorsIndex++;
-    if (colorsIndex === colorsIndex.length - 1) colorsIndex = 0;
     str += getBackgroundColor(index, colorsIndex);
   }
   return str;
