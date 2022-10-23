@@ -21,18 +21,18 @@ body {
     background-color: ${COLORS.background};
     background-image: url('../assets/background-stars.svg');
     color: ${COLORS.primary};
-    animation: animatedBackground 200s linear infinite;
+    animation: animatedBackground 100s linear infinite;
 
     @media (${QUERIES.tablet}) {
-      animation: animatedBackground 100s linear infinite;
+      animation: animatedBackground 50s linear infinite;
     }
 
     @media (${QUERIES.laptop}) {
-      animation: animatedBackground 75s linear infinite;
+      animation: animatedBackground 25s linear infinite;
     }
 
     @media (${QUERIES.desktop}) {
-      animation: animatedBackground 25s linear infinite;
+      animation: animatedBackground 20s linear infinite;
     }
 }
 
