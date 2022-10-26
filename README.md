@@ -1,11 +1,12 @@
-# Planet Viewer
+# Planet Viewer - Learn about the planets whilst viewing them in 3D or AR
 
-This is a solution to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f), with interactive 3d models as an added feature. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is my solution, to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). Front End Mentor challenges provide Figma designs for you to practice translating professional designs into responsive pixel-perfect solutions.
 
 ## Table of contents
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
+  - [Added features](#added-features)
   - [Previews](#previews)
   - [Links](#links)
   - [Built with](#built-with)
@@ -22,10 +23,11 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - View each planet page and toggle between "Overview", "Internal Structure", and "Surface Geology"
 
-#### Added Features
+### Added features
 
 - View each planet in 3D with the ability to rotate.
 - View in augmented reality on iOS.
+- Animations
 
 ### 📸&nbsp;Previews
 
@@ -53,7 +55,7 @@ Users should be able to:
 
 I've always been fascinated by planets, so I was very excited to complete this project. I've been experimenting with Styled Components and found it to be enjoyable styling within the component you're working on. It also works really well when building each component across all breakpoints with a mobile-first workflow.
 
-There were some tricky styling challenges along the way, one of which was the navigation. Because each nav link had its own unique colour for pseudo elements, the long way would have been to write out each nth child pseudo element, but I found a more elegant way (see below) to write a js function that iterates over the theme array I created and returns the colour based on the index. Within the styled component, the function would then be called.
+There were some tricky styling challenges along the way, one of which was the navigation. Because each nav link had its own unique colour for pseudo elements, the long way would have been to write out each nth child pseudo element, but I implemented a more elegant way (see below) by writing a js function that iterates over the theme array I created and returns the colour based on the index. Within the styled component, the function would then be called.
 
 ```js
 const getBackgroundColor = (i, colorsIndex) => {
