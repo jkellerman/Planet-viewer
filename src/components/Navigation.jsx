@@ -205,6 +205,8 @@ const StyledNav = styled.nav`
       position: relative;
       ${calculateBackgrounds}
 
+      /* planet ball & underline (desktop) */
+
       &::before {
         content: "";
         position: absolute;
