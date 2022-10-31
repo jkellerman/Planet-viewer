@@ -4,7 +4,6 @@ import styled from "styled-components";
 import data from "../data/data.json";
 import { QUERIES, PLANETS } from "../utils/variables";
 import { motion } from "framer-motion";
-import "@google/model-viewer";
 
 const Planet = () => {
   const { currentTab } = usePlanetFactsContext();
@@ -60,7 +59,6 @@ const Planet = () => {
             ar-placement="wall"
             ios-src={models.ios}
             poster={models.poster}
-            loading="eager"
           >
             <div id="progress-bar" slot="progress-bar"></div>
           </model-viewer>
