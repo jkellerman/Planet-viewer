@@ -53,9 +53,10 @@ const Planet = () => {
             alt={`A 3D model of the planet ${planetName}`}
             src={models.model}
             camera-controls
-            camera-orbit={planetName === "saturn" ? "0deg 88deg" : "0deg 75deg"}
             auto-rotate
             ar
+            ar-modes="webxr scene-viewer quick-look"
+            environment-image="neutral"
             ar-placement="wall"
             ios-src={models.ios}
             poster={models.poster}
