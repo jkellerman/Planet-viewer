@@ -60,6 +60,7 @@ const Planet = () => {
             ar-placement="wall"
             ios-src={models.ios}
             poster={models.poster}
+            loading="eager"
           >
             <div id="progress-bar" slot="progress-bar"></div>
           </model-viewer>
