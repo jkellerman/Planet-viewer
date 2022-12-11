@@ -39,7 +39,7 @@ const PlanetDescription = () => {
         <StyledSource>
           <span>source :&nbsp;</span>
 
-          {currentTab == "overview" ? (
+          {currentTab === "overview" ? (
             <a href={overview.source} target="_blank" rel="noopener noreferrer">
               wikipedia
             </a>
