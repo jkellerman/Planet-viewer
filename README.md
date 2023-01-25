@@ -59,7 +59,7 @@ I've always been fascinated by planets, so I was very excited to complete this p
 There were some tricky styling challenges along the way, one of which was the navigation. Because each nav link had its own unique colour for pseudo elements, the long way would have been to write out each nth child pseudo element, but I implemented a js function that iterates over the theme array I created and returns the colour based on the index. Within the styled component, the function would then be called.
 
 ```js
-const getBackgroundColor = (i) => {
+const getNavTheme = (i) => {
   return `
     &:nth-child(${i + 1}n)::before{
       background: ${PLANETS[i].theme};
@@ -67,10 +67,10 @@ const getBackgroundColor = (i) => {
   `;
 };
 
-export const calculateBackgrounds = () => {
+const calculateNavTheme = () => {
   let str = "";
   for (let i = 0; i < PLANETS.length; i++) {
-    str += getBackgroundColor(i);
+    str += getNavTheme(i);
   }
   return str;
 };
