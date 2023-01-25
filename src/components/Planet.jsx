@@ -32,16 +32,13 @@ const Planet = () => {
         }}
         exit={{ x: "-5vw", opacity: 0, transition: { ease: "backOut" } }}
       >
-        {currentTab === "overview" && (
+        {currentTab !== "surface" && (
           <img
-            src={images.overview}
-            alt={planetName}
-            style={{ width: "100%", height: "100%", color: "transparent" }}
-          />
-        )}
-        {currentTab === "structure" && (
-          <img
-            src={images.structure}
+            src={
+              currentTab === "overview"
+                ? `${images.overview}`
+                : `${images.structure}`
+            }
             alt={planetName}
             style={{ width: "100%", height: "100%", color: "transparent" }}
           />
