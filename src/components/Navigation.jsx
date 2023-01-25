@@ -16,8 +16,27 @@ import {
   flexColumnSpaceBetween,
   setupBorder,
   centerDiv,
-  calculateBackgrounds,
 } from "../utils/helpers";
+
+// ===========
+
+const getNavTheme = (i) => {
+  return `
+    &:nth-child(${i + 1}n)::before{
+      background: ${PLANETS[i].theme};
+    }
+  `;
+};
+
+const calculateNavTheme = () => {
+  let str = "";
+  for (let i = 0; i < PLANETS.length; i++) {
+    str += getNavTheme(i);
+  }
+  return str;
+};
+
+// ============
 
 const Navigation = () => {
   const location = useLocation();
@@ -202,9 +221,9 @@ const StyledNav = styled.nav`
       list-style: none;
       border-bottom: ${setupBorder({ width: 0.5 })};
       position: relative;
-      ${calculateBackgrounds}
+      ${calculateNavTheme}
 
-      /* planet ball & underline (desktop) */
+      /* planet circle (mobile) & underline (desktop) */
 
       &::before {
         content: "";

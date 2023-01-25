@@ -14,26 +14,6 @@ export const setupBorder = ({
   return `${width}px ${type} ${color}`;
 };
 
-// set unique background color for nav-line and mobile nav bulletpoints/balls
-
-const getBackgroundColor = (i, colorsIndex) => {
-  return `
-    &:nth-child(${i + 1}n)::before{
-      background: ${PLANETS[colorsIndex++].theme};
-    }
-  `;
-};
-
-export const calculateBackgrounds = () => {
-  let str = "";
-  let colorsIndex = -1;
-  for (let index = 0; index < PLANETS.length; index++) {
-    colorsIndex++;
-    str += getBackgroundColor(index, colorsIndex);
-  }
-  return str;
-};
-
 // CSS Helper Functions
 // ====================
 
