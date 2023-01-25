@@ -32,28 +32,28 @@ const PlanetDescription = () => {
         exit={{ opacity: 0 }}
       >
         <p>
-          {currentTab === "overview" && overview.content}
-          {currentTab === "structure" && structure.content}
-          {currentTab === "surface" && geology.content}
+          {currentTab === "overview"
+            ? overview.content
+            : currentTab === "structure"
+            ? structure.content
+            : geology.content}
         </p>
         <StyledSource>
           <span>source :&nbsp;</span>
 
-          {currentTab === "overview" ? (
-            <a href={overview.source} target="_blank" rel="noopener noreferrer">
-              wikipedia
-            </a>
-          ) : (
-            <a
-              href={
-                currentTab === "structure" ? structure.source : geology.source
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              wikipedia
-            </a>
-          )}
+          <a
+            href={
+              currentTab === "overview"
+                ? overview.source
+                : currentTab === "structure"
+                ? structure.source
+                : geology.source
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            wikipedia
+          </a>
 
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
             <path
