@@ -18,26 +18,6 @@ import {
   centerDiv,
 } from "../utils/snippets";
 
-// ===========
-
-const getNavTheme = (i) => {
-  return `
-    &:nth-child(${i + 1}n)::before{
-      background: ${PLANETS[i].theme};
-    }
-  `;
-};
-
-const calculateNavTheme = () => {
-  let str = "";
-  for (let i = 0; i < PLANETS.length; i++) {
-    str += getNavTheme(i);
-  }
-  return str;
-};
-
-// ============
-
 const Navigation = () => {
   const location = useLocation();
   const { setCurrentTab } = usePlanetFactsContext();
@@ -112,6 +92,22 @@ const Navigation = () => {
       </StyledHeaderContainer>
     </StyledHeader>
   );
+};
+
+const getNavTheme = (i) => {
+  return `
+    &:nth-child(${i + 1}n)::before{
+      background: ${PLANETS[i].theme};
+    }
+  `;
+};
+
+const calculateNavTheme = () => {
+  let str = "";
+  for (let i = 0; i < PLANETS.length; i++) {
+    str += getNavTheme(i);
+  }
+  return str;
 };
 
 const StyledHeader = styled.header`
