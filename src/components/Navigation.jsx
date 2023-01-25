@@ -35,7 +35,6 @@ const Navigation = () => {
   }, [location, setCurrentTab]);
 
   useEffect(() => {
-    // Prevent user from scrolling when mobile navigation is open
     const body = document.querySelector("body");
     if (isNavOpen) return body.classList.add("no-scroll");
     return body.classList.remove("no-scroll");
