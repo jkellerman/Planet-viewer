@@ -81,7 +81,7 @@ const calculateNavTheme = () => {
       list-style: none;
       border-bottom: ${setupBorder({ width: 0.5 })};
       position: relative;
-      ${calculateBackgrounds}
+      ${calculateNavTheme}
     }
 ```
 
