@@ -16,7 +16,7 @@ import {
   flexColumnSpaceBetween,
   setupBorder,
   centerDiv,
-} from "../utils/helpers";
+} from "../utils/snippets";
 
 // ===========
 

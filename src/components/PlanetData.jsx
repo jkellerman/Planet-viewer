@@ -7,7 +7,7 @@ import {
   flexColumnSpaceBetween,
   flexRowSpaceBetween,
   setupBorder,
-} from "../utils/helpers";
+} from "../utils/snippets";
 import { motion } from "framer-motion";
 
 const PlanetData = () => {
