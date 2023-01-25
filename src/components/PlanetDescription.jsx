@@ -40,7 +40,6 @@ const PlanetDescription = () => {
         </p>
         <StyledSource>
           <span>source :&nbsp;</span>
-
           <a
             href={
               currentTab === "overview"
@@ -54,7 +53,6 @@ const PlanetDescription = () => {
           >
             wikipedia
           </a>
-
           <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12">
             <path
               fill="#FFF"

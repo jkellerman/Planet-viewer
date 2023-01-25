@@ -15,48 +15,30 @@ const PlanetData = () => {
   const planets = data.find((planet) => planet.name === planetName);
   const { rotation, revolution, radius, temperature } = planets;
 
+  const DATA = [
+    { id: 1, name: "rotation time ", data: rotation },
+    { id: 2, name: "revolution time", data: revolution },
+    { id: 3, name: "radius", data: radius },
+    { id: 4, name: "average temp", data: temperature },
+  ];
+
   return (
     <StyledList>
-      <StyledListContainer>
-        <StyledTitle>rotation time</StyledTitle>
-        <StyledData
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 0.5 } }}
-          exit={{ opacity: 0 }}
-        >
-          {rotation}
-        </StyledData>
-      </StyledListContainer>
-      <StyledListContainer>
-        <StyledTitle>revolution time</StyledTitle>
-        <StyledData
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 0.5 } }}
-          exit={{ opacity: 0 }}
-        >
-          {revolution}
-        </StyledData>
-      </StyledListContainer>
-      <StyledListContainer>
-        <StyledTitle>radius</StyledTitle>
-        <StyledData
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 0.5 } }}
-          exit={{ opacity: 0 }}
-        >
-          {radius}
-        </StyledData>
-      </StyledListContainer>
-      <StyledListContainer>
-        <StyledTitle>average temp.</StyledTitle>
-        <StyledData
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { delay: 0.5 } }}
-          exit={{ opacity: 0 }}
-        >
-          {temperature}
-        </StyledData>
-      </StyledListContainer>
+      {DATA.map((item) => {
+        const { id, name, data } = item;
+        return (
+          <StyledListContainer key={id}>
+            <StyledTitle>{name}</StyledTitle>
+            <StyledData
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, transition: { delay: 0.5 } }}
+              exit={{ opacity: 0 }}
+            >
+              {data}
+            </StyledData>
+          </StyledListContainer>
+        );
+      })}
     </StyledList>
   );
 };
