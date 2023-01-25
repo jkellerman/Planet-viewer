@@ -1,4 +1,4 @@
-# Planet Viewer - Learn about the planets whilst viewing them in 3D or AR
+# Planet Viewer - Learn about the planets whilst interacting with them in 3D or AR
 
 This is my solution, to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f), with some added features.
 
@@ -32,9 +32,15 @@ Users should be able to:
 
 ### 📸&nbsp;Previews
 
+#### desktop
+
 <img src="./public/previews/desktop-3d.png" alt="desktop" width="1000"/>
 
+#### tablet
+
 <img src="./public/previews/tablet.png" alt="tablet" width="500"/>
+
+#### mobile
 
 <img src="./public/previews/mobile.png" alt="mobile" height="1000"/>
 
