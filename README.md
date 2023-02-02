@@ -11,7 +11,7 @@ This is my solution, to the [Planets fact site challenge on Frontend Mentor](htt
   - [Links](#links)
   - [Built with](#built-with)
 - [My process](#my-process)
-  - [Update](#update)
+- [Acknowledgements](#acknowledgements)
 
 ## Overview
 
@@ -97,6 +97,6 @@ The models were actually quite simple to implement during development, but I ran
 
 Models will always take a few seconds to load in reality, but there are a few solutions to improve the user experience. `Lazy loading` comes into play here. Rather than waiting for the models to fully load, I added a poster file that displays before the model is rendered, which is useful for showing the client something before the model has fully loaded if it takes too long. The Model-Viewer documentation also explains how to modify the default loading CSS properties. To make the rendering between planets much smoother, I removed the white background and progress bar.
 
-### 🧑‍💻&nbsp;Update
+## 🧑‍💻&nbsp;Acknowledgements
 
-Originally, I departed from the original design and simply used 3D models instead of images for the overview and structure tabs. The implementation worked fine, but if users have slow network speeds, it can be quite a poor user experience, so I added in the images provided, so the initial pageload and navigation between pages are much smoother.
+- [Starfield](https://codesandbox.io/s/5wwoqr3j24?file=/src/styles.css)
