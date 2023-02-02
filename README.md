@@ -32,19 +32,19 @@ Users should be able to:
 
 ### 📸&nbsp;Previews
 
-#### desktop
+#### mobile
 
-<img src="./public/previews/desktop-3d.png" alt="desktop" width="1000"/>
+<img src="./public/previews/Mobile.png" alt="mobile" height="1000"/>
+
+<img src="./public/previews/Navigation.png" alt="mobile-nav" height="500"/>
 
 #### tablet
 
-<img src="./public/previews/tablet.png" alt="tablet" width="500"/>
+<img src="./public/previews/Tablet.png" alt="tablet" width="500"/>
 
-#### mobile
+#### desktop
 
-<img src="./public/previews/mobile.png" alt="mobile" height="1000"/>
-
-<img src="./public/previews/navigation.png" alt="mobile-nav" height="500"/>
+<img src="./public/previews/Desktop.png" alt="desktop" width="1000"/>
 
 ### 🔗&nbsp;Links
 
