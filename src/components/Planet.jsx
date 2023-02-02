@@ -1,4 +1,4 @@
-import { usePlanetFactsContext } from "../contexts/currentTab";
+import { useCurrentTabContext } from "../contexts/currentTab";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data/data.json";
@@ -6,7 +6,7 @@ import { QUERIES, PLANETS } from "../styles/theme";
 import { motion } from "framer-motion";
 
 const Planet = () => {
-  const { currentTab } = usePlanetFactsContext();
+  const { currentTab } = useCurrentTabContext();
   const { planetName } = useParams();
   const planets = data.find((planet) => planet.name === planetName);
   const model = PLANETS.find((planet) => planet.name === planetName);

@@ -12,7 +12,7 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export const usePlanetFactsContext = () => {
+export const useCurrentTabContext = () => {
   return useContext(AppContext);
 };
 

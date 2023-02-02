@@ -42,9 +42,9 @@ Users should be able to:
 
 <img src="./public/previews/tablet.png" alt="tablet" width="500"/>
 
-#### desktop
+<!-- #### desktop
 
-<img src="./public/previews/desktop.png" alt="desktop" width="1000"/>
+<img src="./public/previews/desktop.png" alt="desktop" width="1000"/> -->
 
 ### 🔗&nbsp;Links
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { usePlanetFactsContext } from "../contexts/currentTab";
+import { useCurrentTabContext } from "../contexts/currentTab";
 import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -20,7 +20,7 @@ import {
 
 const Navigation = () => {
   const location = useLocation();
-  const { setCurrentTab } = usePlanetFactsContext();
+  const { setCurrentTab } = useCurrentTabContext();
   const [isNavOpen, setIsNavOpen] = useState(false);
   const toggleMenu = () => {
     setIsNavOpen(!isNavOpen);
