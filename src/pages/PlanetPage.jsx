@@ -1,13 +1,15 @@
 import Navigation from "../components/Navigation";
 import PlanetFactsContainer from "../components/PlanetFactsContainer";
+import StarField from "../components/Starfield";
 
-const Planet = () => {
+const Core = () => {
   return (
     <>
+      <StarField />
       <Navigation />
       <PlanetFactsContainer />
     </>
   );
 };
 
-export default Planet;
+export default Core;
