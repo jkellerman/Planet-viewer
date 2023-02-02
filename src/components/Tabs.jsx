@@ -1,7 +1,7 @@
-import { usePlanetFactsContext } from "../context/context";
+import { usePlanetFactsContext } from "../contexts/currentTab";
 import { useParams } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
-import { COLORS, FONTWEIGHT, PLANETS, QUERIES } from "../utils/variables";
+import { COLORS, FONTWEIGHT, PLANETS, QUERIES } from "../styles/theme";
 import { centerDiv, setupBorder } from "../utils/snippets";
 
 const Tabs = () => {

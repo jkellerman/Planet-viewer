@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { usePlanetFactsContext } from "../context/context";
+import { usePlanetFactsContext } from "../contexts/currentTab";
 import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -10,7 +10,7 @@ import {
   FONTFAMILY,
   FONTWEIGHT,
   PLANETS,
-} from "../utils/variables";
+} from "../styles/theme";
 import {
   flexRowSpaceBetween,
   flexColumnSpaceBetween,

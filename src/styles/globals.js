@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
-import { COLORS } from "../utils/variables";
-import { FONTFAMILY, QUERIES } from "../utils/variables";
+import { COLORS } from "./theme";
+import { FONTFAMILY, QUERIES } from "./theme";
 
 const GlobalStyles = createGlobalStyle`
 

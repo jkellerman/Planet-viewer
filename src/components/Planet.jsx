@@ -1,8 +1,8 @@
-import { usePlanetFactsContext } from "../context/context";
+import { usePlanetFactsContext } from "../contexts/currentTab";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import data from "../data/data.json";
-import { QUERIES, PLANETS } from "../utils/variables";
+import { QUERIES, PLANETS } from "../styles/theme";
 import { motion } from "framer-motion";
 
 const Planet = () => {

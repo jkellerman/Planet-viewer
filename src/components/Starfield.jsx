@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
-import { COLORS } from "../utils/variables";
+import { COLORS } from "../styles/theme";
 
 const Starfield = () => {
   const canvasRef = useRef(null);

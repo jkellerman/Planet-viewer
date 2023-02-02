@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
 import data from "../data/data.json";
-import { COLORS, FONTWEIGHT, QUERIES } from "../utils/variables";
+import { COLORS, FONTWEIGHT, QUERIES } from "../styles/theme";
 import {
   centerDiv,
   flexColumnSpaceBetween,

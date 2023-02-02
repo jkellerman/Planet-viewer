@@ -3,7 +3,7 @@ import Tabs from "./Tabs";
 import Planet from "./Planet";
 import PlanetDescription from "./PlanetDescription";
 import PlanetData from "./PlanetData";
-import { QUERIES } from "../utils/variables";
+import { QUERIES } from "../styles/theme";
 
 const PlanetFactsContainer = () => {
   return (

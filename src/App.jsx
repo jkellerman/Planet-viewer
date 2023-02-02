@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import GlobalStyles from "./styles/globals";
-import PlanetPage from "./pages/PlanetPage";
+import PlanetPage from "./layouts/core";
 import { AnimatePresence } from "framer-motion";
 
 function App() {

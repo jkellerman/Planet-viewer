@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { COLORS } from "./variables";
+import { COLORS } from "../styles/theme";
 
 export const setupBorder = ({
   width = 1,
