@@ -50,10 +50,6 @@ export const ListContainer = styled.div`
 `;
 
 export const Title = styled.dt`
-  @media (${QUERIES.mobileS}) {
-    font-size: 0.675rem;
-  } // TODO: check to see if needed
-
   ${h4Styles}
   color: ${Theme.colors.secondary};
 
