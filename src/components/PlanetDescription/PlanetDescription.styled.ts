@@ -42,7 +42,7 @@ export const Paragraph = styled.p`
 
   @media (${QUERIES.laptop}) {
     width: 95%;
-    height: 154px;
+    height: 165px;
     margin: 0;
   }
 `;
