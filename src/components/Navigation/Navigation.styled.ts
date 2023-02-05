@@ -4,6 +4,7 @@ import { QUERIES } from "../../styles/mediaQueries";
 import { PLANETS } from "../../data/data";
 import { navTextStyles, titleStyles } from "../../styles/typography";
 import { Theme } from "../../styles/theme";
+import { motion } from "framer-motion";
 import {
   flexRow,
   flexColumn,
@@ -91,6 +92,7 @@ export const NavButton = styled.button`
   border: none;
   cursor: pointer;
   transform: translateY(0.25rem);
+
   @media (${QUERIES.tablet}) {
     display: none;
   }
@@ -129,59 +131,60 @@ export const Nav = styled.nav<Props>`
   @media (${QUERIES.laptop}) {
     width: unset;
   }
+`;
 
-  ul {
+export const List = styled(motion.ul)`
+  @media (${QUERIES.tablet}) {
+    ${flexRow}
+    justify-content: space-between;
+  }
+
+  @media (${QUERIES.laptop}) {
+    gap: 2.0625rem;
+  }
+`;
+export const ListItem = styled(motion.li)`
+  list-style: none;
+  ${borderBottom};
+  position: relative;
+  ${calculateNavTheme}
+
+  /* planet circle (mobile) & underline (desktop) */
+
+      &::before {
+    content: "";
+    position: absolute;
+    top: 1.25rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
     @media (${QUERIES.tablet}) {
-      ${flexRow}
-      justify-content: space-between;
+      display: none;
     }
 
     @media (${QUERIES.laptop}) {
-      gap: 2.0625rem;
+      display: block;
+      top: -1.5em;
+      left: unset;
+      width: 100%;
+      height: 4px;
+      border-radius: unset;
+      transition: transform 200ms ease-in-out;
+      transform: scaleX(0);
     }
-    li {
-      list-style: none;
-      ${borderBottom};
-      position: relative;
-      ${calculateNavTheme}
+  }
 
-      /* planet circle (mobile) & underline (desktop) */
+  &:hover::before {
+    transform: scaleX(1);
+  }
 
-      &::before {
-        content: "";
-        position: absolute;
-        top: 1.25rem;
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
+  &:last-of-type {
+    border-bottom: none;
+  }
 
-        @media (${QUERIES.tablet}) {
-          display: none;
-        }
-
-        @media (${QUERIES.laptop}) {
-          display: block;
-          top: -1.5em;
-          left: unset;
-          width: 100%;
-          height: 4px;
-          border-radius: unset;
-          transition: transform 200ms ease-in-out;
-          transform: scaleX(0);
-        }
-      }
-
-      &:hover::before {
-        transform: scaleX(1);
-      }
-
-      &:last-of-type {
-        border-bottom: none;
-      }
-      @media (${QUERIES.tablet}) {
-        border-bottom: none;
-      }
-    }
+  @media (${QUERIES.tablet}) {
+    border-bottom: none;
   }
 `;
 
@@ -211,6 +214,7 @@ export const $NavLink = styled(NavLink)`
 
 export const Chevron = styled.img`
   transform: translateX(-0.5rem);
+
   @media (${QUERIES.tablet}) {
     display: none;
   }

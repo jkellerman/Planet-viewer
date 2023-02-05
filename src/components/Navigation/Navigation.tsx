@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useActiveTab } from "../../contexts/activeTab";
 
-import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 import { PLANETS } from "../../data/data";
 
@@ -67,11 +66,11 @@ const Navigation: React.FC<Props> = () => {
           </S.SVG>
         </S.NavButton>
         <S.Nav $isNavOpen={isNavOpen}>
-          <motion.ul variants={navVariants} animate={isNavOpen && "visible"}>
+          <S.List variants={navVariants} animate={isNavOpen && "visible"}>
             {PLANETS.map((link) => {
               const { id, name } = link;
               return (
-                <motion.li variants={item} key={id}>
+                <S.ListItem variants={item} key={id}>
                   <S.NavLinkContainer>
                     <S.$NavLink
                       to={`/planet/${name}`}
@@ -83,10 +82,10 @@ const Navigation: React.FC<Props> = () => {
                     </S.$NavLink>
                     <S.Chevron src="../assets/icon-chevron.svg" alt="chevron" />
                   </S.NavLinkContainer>
-                </motion.li>
+                </S.ListItem>
               );
             })}
-          </motion.ul>
+          </S.List>
         </S.Nav>
       </S.HeaderContainer>
     </S.Header>
