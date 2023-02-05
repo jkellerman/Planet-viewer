@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+
 import { PLANETS } from "../../data/data";
 
 import * as S from "./PlanetData.styled";

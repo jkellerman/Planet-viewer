@@ -1,5 +1,5 @@
-import { NavLink, Link } from "react-router-dom";
 import styled from "styled-components";
+import { NavLink, Link } from "react-router-dom";
 import { QUERIES } from "../../styles/mediaQueries";
 import { PLANETS } from "../../data/data";
 import { navTextStyles, titleStyles } from "../../styles/typography";

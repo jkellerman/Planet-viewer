@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import { QUERIES } from "../../styles/mediaQueries";
 import { Theme } from "../../styles/theme";
+import { motion } from "framer-motion";
 import {
   h1Styles,
   bodyTextStyles,
   sourceTextStyles,
 } from "../../styles/typography";
-import { motion } from "framer-motion";
 
 export const PlanetDescriptionContainer = styled.div`
   text-align: center;

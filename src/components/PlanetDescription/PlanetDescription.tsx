@@ -1,5 +1,6 @@
 import { useActiveTab } from "../../contexts/activeTab";
 import { useParams } from "react-router-dom";
+
 import { PLANETS } from "../../data/data";
 import { motion } from "framer-motion";
 
@@ -39,7 +40,7 @@ const PlanetDescription = () => {
             ? planet?.structure.content
             : planet?.geology.content}
         </S.Paragraph>
-        {/* TODO: add styles and add body typography */}
+
         <S.Source>
           <S.SourceHeading>source :&nbsp;</S.SourceHeading>
           <S.WikiLink

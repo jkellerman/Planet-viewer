@@ -1,6 +1,7 @@
 import React from "react";
 import { useActiveTab } from "../../contexts/activeTab";
 import { useParams } from "react-router-dom";
+
 import { PLANETS } from "../../data/data";
 
 import * as S from "./Planet.styled";

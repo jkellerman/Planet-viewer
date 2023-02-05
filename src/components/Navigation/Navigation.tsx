@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useActiveTab } from "../../contexts/activeTab";
-
 import { useLocation } from "react-router-dom";
+
 import { PLANETS } from "../../data/data";
 
 import * as S from "./Navigation.styled";
