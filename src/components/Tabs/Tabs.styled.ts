@@ -66,7 +66,7 @@ export const Tab = styled.button<TabsProps>`
   padding: 1.25rem 0 1rem;
   white-space: nowrap;
   cursor: pointer;
-  ${borderBottom}
+  border-bottom: 4px solid transparent;
 
   &:nth-child(1) {
     border-bottom-color: ${({ $activeTab, planetTheme }) => {
