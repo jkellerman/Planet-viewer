@@ -53,6 +53,7 @@ Users should be able to:
 
 ### 🧰&nbsp;Built with
 
+- [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 - [Styled Components](https://styled-components.com/)
 - [Model-viewer](https://modelviewer.dev/)
@@ -85,7 +86,7 @@ const calculateNavTheme = () => {
 ```css
     li {
       list-style: none;
-      border-bottom: ${setupBorder({ width: 0.5 })};
+      ${borderBottom};
       position: relative;
       ${calculateNavTheme}
     }

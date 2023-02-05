@@ -1,21 +1,30 @@
 import React, { useRef, useEffect } from "react";
-import styled from "styled-components";
-import { COLORS } from "../styles/theme";
+import { Theme } from "../../styles/theme";
 
-const Starfield = () => {
-  const canvasRef = useRef(null);
-  const cRef = useRef(null);
+import * as S from "./Starfield.styles";
+
+interface Star {
+  x: number;
+  y: number;
+  z: number;
+  move: () => void;
+  show: () => void;
+}
+
+const Starfield: React.FC = () => {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const cRef = useRef<CanvasRenderingContext2D | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const c = canvas.getContext("2d");
+    const canvas = canvasRef.current!;
+    const c = canvas.getContext("2d")!;
     cRef.current = c;
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     const numStars = 700;
-    const stars = [];
+    const stars: Star[] = [];
     const size = 0.4;
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
@@ -25,7 +34,7 @@ const Starfield = () => {
       stars.push(createStar());
     }
 
-    function createStar() {
+    function createStar(): Star {
       return {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
@@ -45,18 +54,21 @@ const Starfield = () => {
           y = y + centerY;
 
           s = size * (canvas.width / this.z);
-
-          cRef.current.beginPath();
-          cRef.current.fillStyle = "white";
-          cRef.current.arc(x, y, s, 0, Math.PI * 2);
-          cRef.current.fill();
+          if (cRef.current) {
+            cRef.current.beginPath();
+            cRef.current.fillStyle = "white";
+            cRef.current.arc(x, y, s, 0, Math.PI * 2);
+            cRef.current.fill();
+          }
         },
       };
     }
 
     function draw() {
-      cRef.current.fillStyle = `${COLORS.background}`;
-      cRef.current.fillRect(0, 0, canvas.width, canvas.height);
+      if (cRef.current) {
+        cRef.current.fillStyle = `${Theme.colors.background}`;
+        cRef.current.fillRect(0, 0, canvas.width, canvas.height);
+      }
       for (let i = 0; i < numStars; i++) {
         stars[i].show();
         stars[i].move();
@@ -71,18 +83,9 @@ const Starfield = () => {
     update();
   }, []);
 
-  return <StyledCanvas ref={canvasRef} />;
+  return <S.Canvas ref={canvasRef} />;
 
   //  credit https://codesandbox.io/s/5wwoqr3j24?file=/src/styles.css
 };
-
-const StyledCanvas = styled.canvas`
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`;
 
 export default Starfield;

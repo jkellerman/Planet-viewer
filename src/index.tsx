@@ -1,16 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { AppProvider } from "./contexts/currentTab";
+import { ActiveTabProvider } from "./contexts/activeTab";
 import { BrowserRouter as Router } from "react-router-dom";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
+);
 root.render(
   <React.StrictMode>
-    <AppProvider>
+    <ActiveTabProvider>
       <Router>
         <App />
       </Router>
-    </AppProvider>
+    </ActiveTabProvider>
   </React.StrictMode>
 );

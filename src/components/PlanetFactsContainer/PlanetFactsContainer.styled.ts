@@ -1,24 +1,8 @@
 import styled from "styled-components";
-import Tabs from "./Tabs";
-import Planet from "./Planet";
-import PlanetDescription from "./PlanetDescription";
-import PlanetData from "./PlanetData";
-import { QUERIES } from "../styles/theme";
 
-const PlanetFactsContainer = () => {
-  return (
-    <main>
-      <StyledContainer>
-        <Tabs />
-        <Planet />
-        <PlanetDescription />
-      </StyledContainer>
-      <PlanetData />
-    </main>
-  );
-};
+import { QUERIES } from "../../styles/mediaQueries";
 
-const StyledContainer = styled.div`
+export const Container = styled.div`
   display: grid;
 
   @media (${QUERIES.tablet}) {
@@ -46,5 +30,3 @@ const StyledContainer = styled.div`
     margin-top: 2.5rem;
   }
 `;
-
-export default PlanetFactsContainer;
