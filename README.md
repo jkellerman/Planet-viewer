@@ -56,8 +56,8 @@ Users should be able to:
 - [TypeScript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org/)
 - [Styled Components](https://styled-components.com/)
-- [Model-viewer](https://modelviewer.dev/)
 - [Framer-motion](https://www.framer.com/motion/)
+- [Model-viewer](https://modelviewer.dev/)
 
 ## 💭&nbsp;My process
 
@@ -66,12 +66,12 @@ I've always been fascinated by planets, so I was very excited to complete this p
 There were some tricky styling challenges along the way, one of which was the navigation. Because each nav link had its own unique colour for pseudo elements, the long way would have been to write out each nth child pseudo element, but I implemented a js function that iterates over the theme array I created and returns the colour based on the index. Within the styled component, the function would then be called.
 
 ```js
-const getNavTheme = (i) => {
+const getNavTheme = (i: number) => {
   return `
-    &:nth-child(${i + 1}n)::before{
-      background: ${PLANETS[i].theme};
-    }
-  `;
+      &:nth-child(${i + 1}n)::before{
+        background: ${PLANETS[i].theme};
+      }
+    `;
 };
 
 const calculateNavTheme = () => {
@@ -85,9 +85,6 @@ const calculateNavTheme = () => {
 
 ```css
     li {
-      list-style: none;
-      ${borderBottom};
-      position: relative;
       ${calculateNavTheme}
     }
 ```
