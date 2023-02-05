@@ -53,7 +53,7 @@ export const Title = styled.dt`
   ${h4Styles}
   color: ${Theme.colors.secondary};
 
-  @media (${QUERIES.laptop}) {
+  @media (${QUERIES.tablet}) {
     margin-bottom: 0.875rem;
   }
 `;
