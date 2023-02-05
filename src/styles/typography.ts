@@ -42,7 +42,7 @@ export const h3Styles = css`
   letter-spacing: 1.93px;
   text-transform: uppercase;
 
-  @media (${QUERIES.laptop}) {
+  @media (${QUERIES.tablet}) {
     font-size: ${Theme.fontSizes.s / 16}rem;
     letter-spacing: 2.6px;
   }

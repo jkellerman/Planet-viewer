@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { h3Styles } from "../../styles/typography";
 import { center, border, borderBottom } from "../../styles/snippets";
 import { QUERIES } from "../../styles/mediaQueries";
 import { Theme } from "../../styles/theme";
@@ -56,11 +56,8 @@ export const TabList = styled.div`
 `;
 
 export const Tab = styled.button<TabsProps>`
+  ${h3Styles}
   color: ${Theme.colors.secondary};
-  text-transform: uppercase;
-  font-size: 0.5625rem;
-  font-weight: ${Theme.fontWeight.bold};
-  letter-spacing: 1.93px;
   background-color: transparent;
   border: none;
   padding: 1.25rem 0 1rem;
@@ -98,7 +95,6 @@ export const Tab = styled.button<TabsProps>`
   @media (${QUERIES.tablet}) {
     ${border}
     height: 48px;
-    font-size: 0.75rem;
     display: flex;
     align-items: center;
     padding: 0.75rem 1.25rem;
