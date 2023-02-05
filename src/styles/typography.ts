@@ -51,12 +51,11 @@ export const h3Styles = css`
 export const h4Styles = css`
   font-family: ${Theme.fontFamily.spartan};
   font-weight: ${Theme.fontWeight.bold};
-  font-size: ${(Theme.fontSizes.xs - 3) / 16}rem;
+  font-size: ${Theme.fontSizes.xs / 16}rem;
   letter-spacing: 0.73px;
   text-transform: uppercase;
 
   @media (${QUERIES.tablet}) {
-    font-size: ${Theme.fontSizes.xs / 16}rem;
     letter-spacing: 1px;
   }
 `;
@@ -66,11 +65,10 @@ export const bodyTextStyles = css`
     "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   font-weight: ${Theme.fontWeight.regular};
-  font-size: ${Theme.fontSizes.xs / 16}rem;
+  font-size: ${Theme.fontSizes.m / 16}rem;
   line-height: 22px;
 
   @media (${QUERIES.laptop}) {
-    font-size: ${Theme.fontSizes.m / 16}rem;
     line-height: 25px;
   }
 `;
