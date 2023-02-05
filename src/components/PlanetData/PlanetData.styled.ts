@@ -55,7 +55,7 @@ export const Title = styled.dt`
   } // TODO: check to see if needed
 
   ${h4Styles}
-  color: ${Theme.colors.primary};
+  color: ${Theme.colors.secondary};
 
   @media (${QUERIES.laptop}) {
     margin-bottom: 0.875rem;
