@@ -70,6 +70,7 @@ export const SourceHeading = styled.span`
 
 export const WikiLink = styled.a`
   font-weight: ${Theme.fontWeight.bold};
+  color: ${Theme.colors.secondary};
 `;
 
 export const SVG = styled.svg`
