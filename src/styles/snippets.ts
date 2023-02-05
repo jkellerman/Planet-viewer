@@ -14,11 +14,9 @@ export const center = css`
   margin: 0 auto;
 `;
 
-export const flexRowSpaceBetween = css`
-  // TODO: remove flex-direction and then make adjustments
+export const flexRow = css`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 `;
 

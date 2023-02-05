@@ -5,7 +5,7 @@ import { PLANETS } from "../../data/data";
 import { navTextStyles, titleStyles } from "../../styles/typography";
 import { Theme } from "../../styles/theme";
 import {
-  flexRowSpaceBetween,
+  flexRow,
   flexColumn,
   center,
   borderBottom,
@@ -48,7 +48,8 @@ export const Header = styled.header`
 
 export const HeaderContainer = styled.div`
   ${center}
-  ${flexRowSpaceBetween}
+  ${flexRow}
+  justify-content: space-between;
   margin-bottom: 1rem;
 
   @media (${QUERIES.tablet}) {
@@ -61,8 +62,9 @@ export const HeaderContainer = styled.div`
   }
 
   @media (${QUERIES.laptop}) {
-    ${flexRowSpaceBetween}
     ${center}
+    ${flexRow}
+  justify-content: space-between;
   }
 
   @media (${QUERIES.desktop}) {
@@ -130,7 +132,8 @@ export const Nav = styled.nav<Props>`
 
   ul {
     @media (${QUERIES.tablet}) {
-      ${flexRowSpaceBetween}
+      ${flexRow}
+      justify-content: space-between;
     }
 
     @media (${QUERIES.laptop}) {
@@ -183,7 +186,8 @@ export const Nav = styled.nav<Props>`
 `;
 
 export const NavLinkContainer = styled.div`
-  ${flexRowSpaceBetween}
+  ${flexRow}
+  justify-content: space-between;
   padding: 1.5rem 0;
 `;
 

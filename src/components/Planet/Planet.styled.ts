@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import { QUERIES } from "../../styles/mediaQueries";
 import { motion } from "framer-motion";
+import { flexRow } from "../../styles/snippets";
 
 interface PlanetProps {
   size: string;
 }
 
 export const PlanetContainer = styled.div`
-  display: flex;
+  ${flexRow}
   justify-content: center;
-  align-items: center;
-  /* TODO: Change snippets to this and then add deleted properties */
   height: 305px;
 
   @media (${QUERIES.tablet}) {

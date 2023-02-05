@@ -1,11 +1,6 @@
 import styled from "styled-components";
 import { h2Styles, h4Styles } from "../../styles/typography";
-import {
-  flexRowSpaceBetween,
-  flexColumn,
-  center,
-  border,
-} from "../../styles/snippets";
+import { flexRow, flexColumn, center, border } from "../../styles/snippets";
 import { QUERIES } from "../../styles/mediaQueries";
 import { Theme } from "../../styles/theme";
 import { motion } from "framer-motion";
@@ -21,7 +16,8 @@ export const List = styled.dl`
   }
 
   @media (${QUERIES.tablet}) {
-    ${flexRowSpaceBetween}
+    ${flexRow}
+    justify-content: space-between;
     width: 90%;
     gap: 0;
   }
@@ -37,7 +33,8 @@ export const List = styled.dl`
 `;
 
 export const ListContainer = styled.div`
-  ${flexRowSpaceBetween}
+  ${flexRow}
+  justify-content: space-between;
   ${border}
   padding: 1rem 1.5rem;
 
