@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { PLANETS } from "../../data/data";
 
 import * as S from "./Tabs.styled";
+
 const Tabs: React.FC = () => {
   const { setActiveTab, activeTab } = useActiveTab();
   const { planetName } = useParams();

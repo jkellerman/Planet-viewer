@@ -42,7 +42,6 @@ const Planet: React.FC = () => {
           />
         )}
         {activeTab === "surface" && (
-          // @ts-expect-error
           <model-viewer
             id="reveal"
             style={{ width: "100%", height: "100%" }}
@@ -50,14 +49,16 @@ const Planet: React.FC = () => {
             src={planet?.models.model}
             camera-controls
             auto-rotate
-            ar
             ar-modes="webxr scene-viewer quick-look"
             environment-image="neutral"
             ar-placement="wall"
             ios-src={planet?.models.ios}
             poster={planet?.models.poster}
-            loading="eager"
-          />
+          >
+            {" "}
+            <div id="lazy-load-poster" slot="poster"></div>
+            <div id="progress-bar" slot="progress-bar"></div>
+          </model-viewer>
         )}
       </S.ModelContainer>
     </S.PlanetContainer>
