@@ -29,14 +29,14 @@ export const Paragraph = styled.p`
   ${bodyTextStyles}
   width: 84%;
   margin: 0 auto;
-  margin-bottom: 2rem;
+  /* margin-bottom: 4rem; */
 
   @media (${QUERIES.mobileL}) {
     width: 80%;
   }
 
   @media (${QUERIES.tablet}) {
-    margin: 0 0 2rem;
+    margin: 0 0 4rem;
     height: 110px;
   }
 

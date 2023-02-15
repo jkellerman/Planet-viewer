@@ -19,7 +19,7 @@ export const Theme: DefaultTheme = {
   fontSizes: {
     xl: 80,
     l: 40,
-    m: 14,
+    m: 15,
     s: 12,
     xs: 11,
   },
