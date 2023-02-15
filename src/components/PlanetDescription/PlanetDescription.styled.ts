@@ -28,15 +28,14 @@ export const PlanetDescriptionContainer = styled.div`
 export const Paragraph = styled.p`
   ${bodyTextStyles}
   width: 84%;
-  margin: 0 auto;
-  /* margin-bottom: 4rem; */
+  margin: 2rem auto;
 
   @media (${QUERIES.mobileL}) {
     width: 80%;
   }
 
   @media (${QUERIES.tablet}) {
-    margin: 0 0 4rem;
+    margin: 0 0 2rem;
     height: 110px;
   }
 
