@@ -1,6 +1,5 @@
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Theme } from "../../styles/theme";
-
 import * as S from "./Starfield.styles";
 
 interface Star {
@@ -12,6 +11,11 @@ interface Star {
 }
 
 const Starfield: React.FC = () => {
+  const [windowDimensions, setWindowDimensions] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const cRef = useRef<CanvasRenderingContext2D | null>(null);
 
@@ -20,8 +24,8 @@ const Starfield: React.FC = () => {
     const c = canvas.getContext("2d")!;
     cRef.current = c;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = windowDimensions.width;
+    canvas.height = windowDimensions.height;
 
     const numStars = 700;
     const stars: Star[] = [];
@@ -81,10 +85,21 @@ const Starfield: React.FC = () => {
     }
 
     update();
+  }, [windowDimensions]);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return <S.Canvas ref={canvasRef} />;
-
   //  credit https://codesandbox.io/s/5wwoqr3j24?file=/src/styles.css
 };
 
