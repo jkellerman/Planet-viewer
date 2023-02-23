@@ -32,7 +32,7 @@ const Starfield: React.FC = () => {
     const size = 0.4;
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
-    const speed = 0.5;
+    const speed = 0.2;
 
     for (let i = 0; i < numStars; i++) {
       stars.push(createStar());
@@ -85,7 +85,8 @@ const Starfield: React.FC = () => {
     }
 
     update();
-  }, [windowDimensions]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [windowDimensions.width]);
 
   useEffect(() => {
     function handleResize() {
