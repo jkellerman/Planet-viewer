@@ -9,7 +9,7 @@ export const Container = styled.div`
     justify-items: center;
     align-items: center;
     width: 90%;
-    margin: 1.6875rem auto;
+    margin: 1.6875rem auto 0;
     grid-template-columns: repeat(2, 1fr);
   }
 

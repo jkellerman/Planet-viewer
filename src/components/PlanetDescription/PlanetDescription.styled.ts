@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { QUERIES } from "../../styles/mediaQueries";
 import { Theme } from "../../styles/theme";
 import { motion } from "framer-motion";
+import { flexColumn } from "../../styles/snippets";
 import {
   h1Styles,
   bodyTextStyles,
@@ -22,6 +23,20 @@ export const PlanetDescriptionContainer = styled.div`
     align-self: center;
     transform: translateY(-2rem);
     max-width: 350px;
+  }
+`;
+
+export const ParagraphContainer = styled.div`
+  ${flexColumn}
+
+  @media (${QUERIES.tablet}) {
+    gap: 2rem;
+  }
+  @media (${QUERIES.tabletL}) {
+    gap: 1rem;
+  }
+
+  @media (${QUERIES.laptop}) {
   }
 `;
 
