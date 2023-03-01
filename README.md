@@ -97,4 +97,4 @@ Models will always take a few seconds to load in reality, but there are a few so
 
 ## 🧑‍💻&nbsp;Acknowledgements
 
-- [Starfield](https://codesandbox.io/s/5wwoqr3j24?file=/src/styles.css)
+- The starfield background was sourced from this [Starfield](https://codesandbox.io/s/5wwoqr3j24?file=/src/styles.css) codesandbox. One of the challenges encountered was that the star size increased or decreased based on the screen width when the window was resized, resulting in them being too small or too big. To address this issue, I created a window dimensions state, and set up a useEffect to trigger a rerender of the starfield only when the window's innerWidth changes, as opposed to its innerHeight, which is subject to frequent changes on mobile devices.
