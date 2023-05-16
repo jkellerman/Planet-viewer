@@ -14,14 +14,11 @@ const PlanetDescription = () => {
   return (
     <S.PlanetDescriptionContainer>
       <S.Name
-        initial={{ y: "5vw", opacity: 0 } as any}
+        initial={{ opacity: 0 } as any}
         animate={
           {
-            y: "0",
             opacity: 1,
-            transition: { delay: 1 },
-            type: "spring",
-            stiffness: 500,
+            transition: { delay: 0.5 },
           } as any
         }
         exit={{ opacity: 0 }}
