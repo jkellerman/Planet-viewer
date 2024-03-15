@@ -27,6 +27,24 @@ body {
   }
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+  border: 4px solid transparent;
+  background-clip: content-box; /* THIS IS IMPORTANT */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: ${Theme.colors.secondary};
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
 model-viewer#reveal {
   --poster-color: transparent;
 }
