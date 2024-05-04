@@ -27,9 +27,10 @@ body {
   }
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+html {
+    scrollbar-color: ${Theme.colors.secondary} ${Theme.colors.secondary};
 }
+
 
 /* Track */
 ::-webkit-scrollbar-track {
